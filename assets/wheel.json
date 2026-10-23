@@ -1,0 +1,106 @@
+{
+  "innerRadius" : 48,
+  "pages" : [
+    [
+      {
+        "end" : 3.5903916041026207,
+        "pageStep" : -1,
+        "start" : 3.1415926535897931,
+        "title" : "Previous Page"
+      },
+      {
+        "end" : 4.4879895051282759,
+        "pageStep" : 0,
+        "start" : 3.5903916041026207,
+        "title" : "Copy"
+      },
+      {
+        "end" : 5.3855874061539311,
+        "pageStep" : 0,
+        "start" : 4.4879895051282759,
+        "title" : "Cut"
+      },
+      {
+        "end" : 6.2831853071795862,
+        "pageStep" : 0,
+        "start" : 5.3855874061539311,
+        "title" : "Move To"
+      },
+      {
+        "end" : 7.1807832082052414,
+        "pageStep" : 0,
+        "start" : 6.2831853071795862,
+        "title" : "Open With"
+      },
+      {
+        "end" : 8.0783811092308966,
+        "pageStep" : 0,
+        "start" : 7.1807832082052414,
+        "title" : "Tags"
+      },
+      {
+        "end" : 8.9759790102565518,
+        "pageStep" : 0,
+        "start" : 8.0783811092308966,
+        "title" : "To Shelf"
+      },
+      {
+        "end" : 9.4247779607693793,
+        "pageStep" : 1,
+        "start" : 8.9759790102565518,
+        "title" : "Next Page"
+      }
+    ],
+    [
+      {
+        "end" : 3.6651914291880918,
+        "pageStep" : -1,
+        "start" : 3.1415926535897931,
+        "title" : "Previous Page"
+      },
+      {
+        "end" : 4.7123889803846897,
+        "pageStep" : 0,
+        "start" : 3.6651914291880918,
+        "title" : "Copy Path"
+      },
+      {
+        "end" : 5.7595865315812871,
+        "pageStep" : 0,
+        "start" : 4.7123889803846897,
+        "title" : "AirDrop"
+      },
+      {
+        "end" : 6.8067840827778845,
+        "pageStep" : 0,
+        "start" : 5.7595865315812871,
+        "title" : "Quick Look"
+      },
+      {
+        "end" : 7.8539816339744819,
+        "pageStep" : 0,
+        "start" : 6.8067840827778845,
+        "title" : "Terminal"
+      },
+      {
+        "end" : 8.9011791851710811,
+        "pageStep" : 0,
+        "start" : 7.8539816339744828,
+        "title" : "Share…"
+      },
+      {
+        "end" : 9.4247779607693793,
+        "pageStep" : 1,
+        "start" : 8.9011791851710811,
+        "title" : "Next Page"
+      }
+    ]
+  ],
+  "scene" : {
+    "height" : 460,
+    "width" : 600,
+    "x" : 166,
+    "y" : 96
+  },
+  "size" : 268
+}

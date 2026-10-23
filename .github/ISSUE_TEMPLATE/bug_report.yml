@@ -1,0 +1,50 @@
+name: Report a problem
+description: Something in PoppyDesk doesn't work the way it should.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead? Screenshots or a short screen recording help a lot.
+    validations:
+      required: true
+  - type: dropdown
+    id: module
+    attributes:
+      label: Which part of PoppyDesk?
+      options:
+        - Notch
+        - Clipboard Wheel
+        - Clipboard History
+        - Menu Bar
+        - Battery
+        - Keep Awake
+        - Eye Breaks
+        - Sound
+        - Updates or installing
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can it be made to happen again?
+      placeholder: |
+        1. Open the notch
+        2. Click …
+  - type: input
+    id: version
+    attributes:
+      label: PoppyDesk version
+      description: Filled in for you when you use Settings → About → Report a Problem.
+      placeholder: "0.1.0 (1)"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac
+      placeholder: "15.1 (Apple silicon)"
+    validations:
+      required: true

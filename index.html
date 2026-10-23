@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PoppyDesk — your notch, finally useful</title>
+  <meta name="description" content="A free, modular menu bar app for Mac: a notch shelf, a clipboard wheel, a tidy menu bar, battery, sound per app and more. Turn on only what you need.">
+  <meta property="og:title" content="PoppyDesk — your notch, finally useful">
+  <meta property="og:description" content="A free, modular menu bar app for Mac. Turn on only what you need.">
+  <meta property="og:image" content="https://volodymyrdem.github.io/PoppyDesk/assets/icon.png">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/icon.png" alt="">PoppyDesk</a>
+      <div class="links">
+        <a href="#modules">Modules</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#install">Install</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="button" href="#download">Download</a>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
+    <img class="app-icon" src="assets/icon.png" alt="PoppyDesk icon">
+    <h1>Your notch,<br><em>finally useful.</em></h1>
+    <p class="lead">A shelf in the notch, a clipboard wheel, a tidy menu bar and a few small helpers. One free app; you turn on only the parts you want.</p>
+    <a class="button big coral download-link" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.76c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.66zM14.1 6.04c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.05-.52 2.68-1.28z"/></svg>
+      Download for Mac
+    </a>
+    <p class="meta"><span class="version-label">Free</span> · macOS 14 or later · Apple silicon &amp; Intel</p>
+
+    <div class="macbook" id="demo">
+      <div class="lid">
+        <div class="display">
+          <div class="menubar">
+            <div class="left">
+              <span class="apple"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.76c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.66zM14.1 6.04c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.05-.52 2.68-1.28z"/></svg></span><b>Finder</b><span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Window</span><span>Help</span>
+            </div>
+            <div class="right">
+              <span class="hidden-icons" id="hidden-icons">
+                <img src="assets/menubar-cloud.png" alt=""><img src="assets/menubar-voice.png" alt=""><img src="assets/menubar-bolt.png" alt="">
+              </span>
+              <button class="poppy" id="poppy" title="Click the poppy to hide the icons left of it" aria-label="Hide menu bar icons"><img src="assets/menubar-poppy.png" alt=""></button>
+              <img class="battery" src="assets/menubar-battery.png" alt="">
+              <img src="assets/menubar-wifi.png" alt="">
+              <img src="assets/menubar-search.png" alt="">
+              <img src="assets/menubar-controls.png" alt="">
+              <span class="clock" id="clock">Thu 22 Oct&nbsp;&nbsp;9:41</span>
+            </div>
+          </div>
+          <img class="closed" src="assets/notch-bubbles.png" alt="The closed notch with what's playing, a timer and Keep Awake beside it">
+          <div class="opened" id="opened">
+            <img class="active" data-tab="home" data-look="black" src="assets/notch-home.png" alt="The open notch: what's playing, your week, a timer and the camera">
+            <img data-tab="shelf" data-look="black" src="assets/notch-shelf.png" alt="The notch's shelf with files, a note and AirDrop" loading="lazy">
+            <img data-tab="clipboard" data-look="black" src="assets/notch-clipboard.png" alt="Clipboard history in the notch" loading="lazy">
+            <img data-tab="battery" data-look="black" src="assets/notch-battery.png" alt="The battery in the notch: charge, power and health" loading="lazy">
+            <img hidden class="active" data-tab="home" data-look="glass" src="assets/notch-glass-home.png" alt="The open notch in clear glass" loading="lazy">
+            <img hidden data-tab="shelf" data-look="glass" src="assets/notch-glass-shelf.png" alt="The notch's shelf in clear glass" loading="lazy">
+            <img hidden data-tab="clipboard" data-look="glass" src="assets/notch-glass-clipboard.png" alt="Clipboard history in clear glass" loading="lazy">
+            <img hidden data-tab="battery" data-look="glass" src="assets/notch-glass-battery.png" alt="The battery in clear glass" loading="lazy">
+          </div>
+          <div class="notch-zone" id="notch-zone" role="button" tabindex="0" aria-label="Open the notch"></div>
+        </div>
+      </div>
+      <div class="base"></div>
+    </div>
+    <div class="controls">
+      <div class="tabs" id="tabs" role="tablist">
+        <button role="tab" data-tab="home" aria-selected="true"><i class="icon" style="--icon:url(assets/tab-home.png)"></i>Home</button>
+        <button role="tab" data-tab="shelf"><i class="icon" style="--icon:url(assets/tab-shelf.png)"></i>Shelf</button>
+        <button role="tab" data-tab="clipboard"><i class="icon" style="--icon:url(assets/tab-clipboard.png)"></i>Clipboard</button>
+        <button role="tab" data-tab="battery"><i class="icon" style="--icon:url(assets/icon-battery.png)"></i>Battery</button>
+      </div>
+      <div class="looks" role="radiogroup" aria-label="Look">
+        <button role="radio" data-look="black" aria-checked="true"><span class="swatch black"></span>Black</button>
+        <button role="radio" data-look="glass" aria-checked="false"><span class="swatch glass"></span>Clear glass</button>
+      </div>
+    </div>
+    <p class="hint">Real PoppyDesk, rendered straight from the app. Point at the notch, try it in glass, or click the poppy in the menu bar.</p>
+  </header>
+
+  <section id="modules">
+    <div class="wrap">
+      <h2>Eight little helpers.<br>Pick yours.</h2>
+      <p class="section-lead">Each one is a module. Turned off, it doesn't run and doesn't ask for anything.</p>
+      <div class="grid">
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-notch.png)"></i></div><h3>Notch</h3><p>Hover the notch and it opens into a dashboard: what's playing, your week, a timer and a stopwatch, a shelf for files and AirDrop.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-wheel.png)"></i></div><h3>Clipboard Wheel</h3><p>Drag files or anything else, tap Control, and drop on Copy, Cut, Copy Path, AirDrop and more.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-history.png)"></i></div><h3>Clipboard History</h3><p>Everything you copy, a shortcut away, with search and pins, pasted right where you were.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-menubar.png)"></i></div><h3>Menu Bar</h3><p>Click the poppy to hide the icons left of its divider, and again to bring them back.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-battery.png)"></i></div><h3>Battery</h3><p>How full it is and where the power goes, with a bubble by the notch showing the watts coming in.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-awake.png)"></i></div><h3>Keep Awake</h3><p>Keeps the Mac from sleeping for a while, with a little cup by the notch counting down.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-eyes.png)"></i></div><h3>Eye Breaks</h3><p>Every so often, a blinking eye reminds you to look at something far away for a few seconds.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-sound.png)"></i></div><h3>Sound</h3><p>Turn each app up, down or off, and pick where the sound goes, from the menu bar or the notch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closeups">
+    <div class="wrap">
+      <h2>Up close.</h2>
+      <p class="section-lead">Every picture here is the real app, drawn by PoppyDesk itself.</p>
+      <div class="shots">
+        <figure class="shot wheel-shot">
+          <div class="pane" id="wheel">
+            <img src="assets/wheel-black-0-2.webp" alt="The clipboard wheel around three dragged PDF files, with Cut highlighted" loading="lazy">
+            <div class="looks small" role="radiogroup" aria-label="Look">
+              <button role="radio" data-look="black" aria-checked="true"><span class="swatch black"></span>Black</button>
+              <button role="radio" data-look="glass" aria-checked="false"><span class="swatch glass"></span>Glass</button>
+            </div>
+          </div>
+          <figcaption><h3>Clipboard Wheel</h3><p>Drag a few files, tap Control, and let go over what to do with them. Point at the wheel to try it; the arrows turn the page.</p></figcaption>
+        </figure>
+        <figure class="shot strip">
+          <div class="pane"><img class="wide" src="assets/notch-bubbles-awake-crop.png" alt="Bubbles beside the notch: awake for 45 more minutes, a timer, and music playing" loading="lazy"></div>
+          <figcaption><h3>Keep Awake</h3><p>A cup with a poppy on it counts down beside the notch while your Mac stays up.</p></figcaption>
+        </figure>
+        <figure class="shot strip">
+          <div class="pane"><img class="narrow" src="assets/notch-charging-crop.png" alt="A bubble beside the notch showing 94 W coming in" loading="lazy"></div>
+          <figcaption><h3>Battery</h3><p>Plug in and the notch tells you how many watts are really coming in.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap split">
+      <div>
+        <h2>One app.<br>Only what you need.</h2>
+        <p class="section-lead">Install PoppyDesk once and switch modules on whenever you like, in Settings. Nothing to download again, nothing running that you didn't ask for.</p>
+      </div>
+      <div class="toggles" id="toggles">
+        <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-notch.png)"></i>Notch</span><button class="switch" role="switch" aria-checked="true"></button></div>
+        <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-wheel.png)"></i>Clipboard Wheel</span><button class="switch" role="switch" aria-checked="true"></button></div>
+        <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-menubar.png)"></i>Menu Bar</span><button class="switch" role="switch" aria-checked="false"></button></div>
+        <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-awake.png)"></i>Keep Awake</span><button class="switch" role="switch" aria-checked="true"></button></div>
+        <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-sound.png)"></i>Sound</span><button class="switch" role="switch" aria-checked="false"></button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap split">
+      <div>
+        <h2>Stays on your Mac.</h2>
+        <p class="section-lead">No accounts, no analytics, no tracking. What you copy, play and plug in never leaves your Mac.</p>
+        <a href="privacy.html">Read the privacy policy →</a>
+      </div>
+      <div class="points">
+        <div class="point"><div class="dot">✓</div><div><h3>Nothing collected</h3><p>PoppyDesk doesn't send anything about you or how you use it. There's no server to send it to.</p></div></div>
+        <div class="point"><div class="dot">✓</div><div><h3>Asks only when needed</h3><p>A permission is asked for the first time you use what needs it, never for modules that are off.</p></div></div>
+        <div class="point"><div class="dot">✓</div><div><h3>Camera stays yours</h3><p>The camera turns on only when you click it in the notch, and off when the notch closes. Nothing is recorded.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="install">
+    <div class="wrap">
+      <h2>Installing takes a minute.</h2>
+      <p class="section-lead">PoppyDesk isn't from the App Store yet, so macOS asks you to confirm it once.</p>
+      <div class="steps">
+        <div class="step"><h3>Download</h3><p>Open <b>PoppyDesk.dmg</b> and drag PoppyDesk into Applications.</p></div>
+        <div class="step"><h3>Open it</h3><p>Open PoppyDesk from Applications. macOS says it can't check it; click <b>Done</b>.</p></div>
+        <div class="step"><h3>Allow it</h3><p>Open <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to PoppyDesk.</p></div>
+        <div class="step"><h3>Enjoy</h3><p>Pick your modules. From then on PoppyDesk updates itself, no more asking.</p></div>
+      </div>
+      <p class="note">Prefer Terminal? After dragging it to Applications, run <code>xattr -dr com.apple.quarantine /Applications/PoppyDesk.app</code> and open it.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap" style="max-width:820px">
+      <h2 class="center">Questions</h2>
+      <details><summary>Is PoppyDesk free?</summary><p>Yes, every module.</p></details>
+      <details><summary>Why does macOS warn about it?</summary><p>Apps from outside the App Store need to be checked by Apple ("notarized") to open without a question. PoppyDesk isn't yet, so macOS asks you to confirm once. Updates install without asking again.</p></details>
+      <details><summary>How does it update?</summary><p>PoppyDesk checks for a new version once a day and offers to install it in a click. Turn that off, or have updates install on their own, in <b>Settings → About</b>.</p></details>
+      <details><summary>Does it work on Macs without a notch?</summary><p>Yes. Macs without one get a black notch at the top of the screen that works the same way.</p></details>
+      <details><summary>Which permissions does it ask for?</summary><p>Only what the modules you turn on need, the first time you use them: Accessibility to paste and to tidy the menu bar, Calendar to show your events, the camera for the mirror in the notch, audio for the Sound mixer, and Finder to move files you cut. Each is explained before macOS asks.</p></details>
+      <details><summary>How do I uninstall it?</summary><p>Quit it from the poppy in the menu bar and drag PoppyDesk from Applications to the Trash.</p></details>
+      <details><summary>Found a bug or have an idea?</summary><p><a href="https://github.com/VolodymyrDem/PoppyDesk/issues/new/choose">Tell me on GitHub</a>, or use <b>Settings → About → Report a Problem</b> in the app, which fills in your versions for you.</p></details>
+    </div>
+  </section>
+
+  <section class="alt download" id="download">
+    <div class="wrap">
+      <img class="app-icon" src="assets/icon.png" alt="">
+      <h2>Get PoppyDesk</h2>
+      <p class="section-lead">Free, for macOS 14 Sonoma or later, on Apple silicon and Intel.</p>
+      <a class="button big coral download-link" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">Download for Mac</a>
+      <p class="meta"><span class="version-label"></span> <a href="https://github.com/VolodymyrDem/PoppyDesk/releases">What's new</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Volodymyr Demianchuk</span>
+      <div class="links">
+        <a href="privacy.html">Privacy</a>
+        <a href="license.html">License</a>
+        <a href="https://github.com/VolodymyrDem/PoppyDesk/releases">Releases</a>
+        <a href="https://github.com/VolodymyrDem/PoppyDesk/issues/new/choose">Feedback</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // The notch opens on hover like the real one, and shows off its tabs on its own until someone tries it.
+    const demo = document.getElementById("demo");
+    const zone = document.getElementById("notch-zone");
+    const opened = document.getElementById("opened");
+    const tabs = [...document.querySelectorAll("#tabs button")];
+    const order = tabs.map(t => t.dataset.tab);
+    let touched = false, closeTimer;
+    const setOpen = open => demo.classList.toggle("open", open);
+    const show = tab => {
+      opened.querySelectorAll("img").forEach(i => i.classList.toggle("active", i.dataset.tab === tab));
+      tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
+    };
+    const touch = () => { touched = true; demo.classList.add("touched"); };
+    zone.addEventListener("mouseenter", () => { touch(); clearTimeout(closeTimer); setOpen(true); });
+    opened.addEventListener("mouseenter", () => clearTimeout(closeTimer));
+    opened.addEventListener("mouseleave", () => { closeTimer = setTimeout(() => setOpen(false), 250); });
+    zone.addEventListener("click", () => { touch(); setOpen(!demo.classList.contains("open")); });
+    zone.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); zone.click(); } });
+    tabs.forEach(t => t.addEventListener("click", () => { touch(); show(t.dataset.tab); setOpen(true); }));
+    document.addEventListener("click", e => { if (touched && !demo.contains(e.target) && !e.target.closest("#tabs")) setOpen(false); });
+
+    // Clicking the poppy hides the icons left of it, as the Menu Bar module does.
+    document.getElementById("poppy").addEventListener("click", () => document.getElementById("hidden-icons").classList.toggle("gone"));
+
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      let step = 0;
+      setInterval(() => {
+        if (touched) return;
+        if (demo.classList.contains("open")) { setOpen(false); return; }
+        show(order[step++ % order.length]);
+        setOpen(true);
+      }, 2400);
+    }
+
+    // Black or clear glass, like the Look setting in the app. One switch drives the notch and the wheel.
+    let look = "black";
+    const lookButtons = [...document.querySelectorAll(".looks button")];
+    const setLook = l => {
+      look = l;
+      lookButtons.forEach(b => b.setAttribute("aria-checked", b.dataset.look === l));
+      opened.querySelectorAll("img").forEach(i => i.hidden = i.dataset.look !== l);
+      opened.querySelectorAll(`img[data-look="${l}"]`).forEach(i => i.loading = "eager");
+      drawWheel();
+    };
+    lookButtons.forEach(b => b.addEventListener("click", e => {
+      e.stopPropagation();
+      setLook(b.dataset.look);
+      if (b.closest("#tabs, .controls")) { touch(); setOpen(true); }
+    }));
+
+    // The clipboard wheel follows the pointer: each state is a real render, and the arrows turn the page.
+    const wheelPane = document.getElementById("wheel");
+    const wheelImg = wheelPane.querySelector("img");
+    let wheel, page = 0, hovered = 2, warmed = false;
+    function drawWheel() {
+      wheelImg.src = `assets/wheel-${look}-${page}-${hovered ?? "n"}.webp`;
+      const slot = wheel && hovered != null ? wheel.pages[page][hovered] : null;
+      wheelImg.alt = slot ? `The clipboard wheel with ${slot.title} highlighted` : "The clipboard wheel";
+    }
+    const warm = () => {
+      if (warmed || !wheel) return;
+      warmed = true;
+      for (const l of ["black", "glass"]) wheel.pages.forEach((slots, p) =>
+        ["n", ...slots.keys()].forEach(h => { new Image().src = `assets/wheel-${l}-${p}-${h}.webp`; }));
+    };
+    const slotAt = e => {
+      const r = wheelImg.getBoundingClientRect();
+      const k = wheel.size / r.width;
+      const dx = (e.clientX - r.left - r.width / 2) * k, dy = (e.clientY - r.top - r.height / 2) * k;
+      const d = Math.hypot(dx, dy);
+      if (d < wheel.innerRadius || d > wheel.size / 2) return null;
+      let a = Math.atan2(dx, -dy);
+      if (a < 0) a += 2 * Math.PI;
+      const i = wheel.pages[page].findIndex(s => (a >= s.start && a < s.end) || (a + 2 * Math.PI >= s.start && a + 2 * Math.PI < s.end));
+      return i < 0 ? null : i;
+    };
+    fetch("assets/wheel.json").then(r => r.json()).then(w => {
+      wheel = w;
+      wheelPane.addEventListener("pointerenter", warm);
+      wheelPane.addEventListener("pointermove", e => {
+        if (e.pointerType !== "mouse") return;
+        const h = slotAt(e);
+        wheelPane.classList.toggle("pointing", h != null);
+        if (h !== hovered) { hovered = h; drawWheel(); }
+      });
+      wheelPane.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") { hovered = null; drawWheel(); } });
+      wheelPane.addEventListener("click", e => {
+        if (e.target.closest(".looks")) return;
+        warm();
+        const h = slotAt(e);
+        if (h == null) return;
+        const step = wheel.pages[page][h].pageStep;
+        if (step) {
+          page = (page + step + wheel.pages.length) % wheel.pages.length;
+          hovered = e.pointerType === "mouse" ? slotAt(e) : null;
+        } else hovered = h;
+        drawWheel();
+      });
+    }).catch(() => {});
+
+    // The menu bar's clock tells the real time.
+    const clock = document.getElementById("clock");
+    const tick = () => {
+      const now = new Date();
+      const day = now.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }).replace(",", "");
+      clock.innerHTML = `${day}&nbsp;&nbsp;${now.toLocaleTimeString("en-GB", { hour: "numeric", minute: "2-digit" })}`;
+    };
+    tick(); setInterval(tick, 10000);
+
+    document.querySelectorAll("#toggles .switch").forEach(s =>
+      s.addEventListener("click", () => s.setAttribute("aria-checked", s.getAttribute("aria-checked") !== "true")));
+
+    // The version comes from the update feed, so the page never needs editing for a release.
+    fetch("appcast.xml").then(r => r.text()).then(xml => {
+      const doc = new DOMParser().parseFromString(xml, "application/xml");
+      const item = doc.querySelector("item");
+      const version = item && item.getElementsByTagNameNS("http://www.andymatuschak.org/xml-namespaces/sparkle", "shortVersionString")[0];
+      if (version) document.querySelectorAll(".version-label").forEach(l => l.textContent = `Version ${version.textContent}`);
+    }).catch(() => {});
+  </script>
+</body>
+</html>

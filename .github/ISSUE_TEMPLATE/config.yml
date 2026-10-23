@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Installing PoppyDesk
+    url: https://volodymyrdem.github.io/PoppyDesk/#install
+    about: How to open PoppyDesk the first time, when macOS says it can't check it.

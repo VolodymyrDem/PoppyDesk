@@ -1,0 +1,34 @@
+name: Suggest an idea
+description: Something PoppyDesk could do, or do better.
+labels: [idea]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Describe the idea, and what it would help you with.
+    validations:
+      required: true
+  - type: dropdown
+    id: module
+    attributes:
+      label: Which part of PoppyDesk is it about?
+      options:
+        - Notch
+        - Clipboard Wheel
+        - Clipboard History
+        - Menu Bar
+        - Battery
+        - Keep Awake
+        - Eye Breaks
+        - Sound
+        - A new module
+        - Something else
+  - type: input
+    id: version
+    attributes:
+      label: PoppyDesk version
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac

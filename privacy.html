@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — PoppyDesk</title>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/icon.png" alt="">PoppyDesk</a>
+      <a class="button" href="./#download" style="margin-left:auto">Download</a>
+    </div>
+  </nav>
+  <main class="doc">
+    <h1>Privacy</h1>
+    <p class="updated">Last updated 22 October 2026</p>
+    <p><b>PoppyDesk doesn't collect, store or share any information about you.</b> There are no accounts, no analytics, no ads and no tracking, and there's no PoppyDesk server for anything to go to.</p>
+
+    <h2>What stays on your Mac</h2>
+    <p>Everything PoppyDesk keeps is stored only on your Mac, in <code>~/Library/Application Support/PoppyDesk</code> and PoppyDesk's preferences:</p>
+    <ul>
+      <li>Your clipboard history and pins, if Clipboard History is on. Copies marked as passwords by password managers are never kept.</li>
+      <li>Files, pictures and text you put on the notch shelf.</li>
+      <li>Your settings, and a menu bar picture if you choose one.</li>
+    </ul>
+    <p>Deleting PoppyDesk and that folder removes all of it.</p>
+
+    <h2>Permissions</h2>
+    <p>macOS asks you before PoppyDesk can use any of these, and only when you first use something that needs it:</p>
+    <ul>
+      <li><b>Camera</b>: shows you to yourself in the notch, live, when you click the camera widget. It turns off when the notch closes. Nothing is recorded or saved.</li>
+      <li><b>Calendars</b>: reads your events to show them in the notch. They aren't copied anywhere.</li>
+      <li><b>Audio recording</b>: lets the Sound mixer change each app's volume, and the notch's equalizer follow the music. The sound is processed as it plays and is never recorded or saved.</li>
+      <li><b>Accessibility</b>: pastes what you pick from the clipboard, tidies the menu bar and, if you turn on <i>Look active</i> in Keep Awake, keeps the screen from locking.</li>
+      <li><b>Paste from other apps</b>: lets Clipboard History see what you copy elsewhere.</li>
+      <li><b>Automation</b>: asks Finder to move files you cut, and Music or Spotify what's playing if the system can't tell.</li>
+    </ul>
+
+    <h2>When PoppyDesk goes online</h2>
+    <ul>
+      <li><b>Updates</b>: about once a day, PoppyDesk downloads a short list of versions from this website, which is hosted by GitHub Pages, and downloads updates from GitHub. Like any website, GitHub sees your IP address; PoppyDesk sends nothing else. You can turn automatic checks off in <b>Settings → About</b>.</li>
+      <li><b>Album covers</b>: when Spotify is playing, PoppyDesk may download the cover from Spotify's servers, from the address Spotify gives it.</li>
+      <li><b>Feedback</b>: <i>Report a Problem</i> and <i>Suggest an Idea</i> open a form on GitHub in your browser, with your PoppyDesk and macOS versions filled in. Nothing is sent until you submit it, and what you submit there is public.</li>
+    </ul>
+
+    <h2>Changes</h2>
+    <p>If this ever changes, this page will say so before the version that changes it.</p>
+
+    <h2>Questions</h2>
+    <p>Ask on <a href="https://github.com/VolodymyrDem/PoppyDesk/issues/new/choose">GitHub</a>.</p>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Volodymyr Demianchuk</span>
+      <div class="links"><a href="./">Home</a><a href="license.html">License</a><a href="https://github.com/VolodymyrDem/PoppyDesk/releases">Releases</a></div>
+    </div>
+  </footer>
+</body>
+</html>
