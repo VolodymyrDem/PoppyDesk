@@ -5,5 +5,14 @@
     <link>https://volodymyrdem.github.io/PoppyDesk/appcast.xml</link>
     <description>PoppyDesk updates</description>
     <language>en</language>
+    <item>
+      <title>Version 0.1.0</title>
+      <pubDate>Fri, 23 Oct 2026 14:15:57 GMT</pubDate>
+      <sparkle:version>47</sparkle:version>
+      <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>The first release. Turn on only the modules you want in <b>Settings → Modules</b>.</p><ul><li><b>Notch</b>: hover it for what&#x27;s playing, your week, timers and a stopwatch, a shelf for files and AirDrop, and the camera as a mirror. Black, glass or clear glass.</li><li><b>Clipboard Wheel</b>: drag files, tap Control, and drop them on Copy, Cut, Move To, AirDrop, Quick Look and more.</li><li><b>Clipboard History</b>: everything you copy, a shortcut away, with search and pins, also in the notch.</li><li><b>Menu Bar</b>: click the poppy to hide the icons left of its divider.</li><li><b>Battery</b>: charge, health and where the power goes, with the watts coming in shown by the notch.</li><li><b>Keep Awake</b>: keeps your Mac up for a while, with a countdown beside the notch.</li><li><b>Eye Breaks</b>: reminds you to look at something far away now and then.</li><li><b>Sound</b>: each app&#x27;s volume, and where the sound goes.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.1.0/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="PAMBKbpDH/WUBEEecraLkixYryTMVGgf4ih7pvV1iRzvtVzcC0eF4b67kf2g8AmEQOioJq1Jzqd1czV+70DRBg==" length="10507166"/>
+    </item>
   </channel>
 </rss>
