@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.2.0</title>
+      <pubDate>Mon, 26 Oct 2026 17:02:15 GMT</pubDate>
+      <sparkle:version>49</sparkle:version>
+      <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Keep Awake</b> is its own module now: put its cup in the notch or in the menu bar, where it counts down beside the icon.</li><li><b>Keep Awake</b> has 30 minutes instead of 5 hours, and <b>Custom…</b> for any length or until a time of day. Type it like the notch timer, or scroll over the hours and minutes, with a tap on the trackpad for each step.</li><li><b>Menu Bar</b> is in beta: it&#x27;s off until you turn it on, and is turned off once after this update. Turn it back on in <b>Settings → Modules</b> if you&#x27;d like it.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.2.0/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="DnSGlnyevNHI489fqKHocNi57C7RsUF2nw5ZRtXPuDmcWNlsxWOg0cW4hrEX+5r1JNyIp5elZDQ4FwjHLAC7DQ==" length="10723495"/>
+    </item>
+    <item>
       <title>Version 0.1.0</title>
       <pubDate>Fri, 23 Oct 2026 14:15:57 GMT</pubDate>
       <sparkle:version>47</sparkle:version>
