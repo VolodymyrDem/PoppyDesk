@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.2.1</title>
+      <pubDate>Mon, 26 Oct 2026 17:12:42 GMT</pubDate>
+      <sparkle:version>50</sparkle:version>
+      <sparkle:shortVersionString>0.2.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Notch</b>: the open notch&#x27;s bottom corners now follow the cards inside them, so the black edge around them is the same width all the way round.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.2.1/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="ZDNJbo7j7QVhSksqyP5JGBm+4CAcoWGm6kpjoMBQ4xKn88Ox3hbeS+74Lo516tH8cxGL7IT9ElES9A5iokMmCQ==" length="10724115"/>
+    </item>
+    <item>
       <title>Version 0.2.0</title>
       <pubDate>Mon, 26 Oct 2026 17:02:15 GMT</pubDate>
       <sparkle:version>49</sparkle:version>
