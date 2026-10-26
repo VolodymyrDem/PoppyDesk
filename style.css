@@ -262,6 +262,23 @@ section.alt .module { background: var(--cream); }
 .step h3 { margin: 0 0 6px; font-size: 18px; }
 .step p { margin: 0; color: var(--muted); font-size: 15px; }
 .note { margin-top: 22px; color: var(--muted); font-size: 15px; }
+.step .button.small { margin-top: 14px; padding: 7px 14px; font-size: 14px; }
+.terminal {
+  background: #1d1a17; color: #f4efe6; border-radius: var(--radius); padding: 18px 22px 20px;
+  box-shadow: var(--shadow); max-width: 760px;
+}
+.terminal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 600; font-size: 15px; color: rgba(244, 239, 230, 0.7); }
+.terminal pre { margin: 12px 0; overflow-x: auto; }
+.terminal pre code { background: none; padding: 0; font-size: 15px; color: #fff; white-space: pre; }
+.terminal p { margin: 0; font-size: 14px; color: rgba(244, 239, 230, 0.65); }
+.terminal a { color: #ff9d8a; }
+.copy {
+  border: 0; border-radius: 999px; padding: 6px 14px; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600;
+  background: rgba(255, 255, 255, 0.12); color: #fff; transition: background 0.2s ease;
+}
+.copy:hover { background: rgba(255, 255, 255, 0.2); }
+.copy.done { background: #34c759; }
+h3.or { margin: 40px 0 16px; font-size: 18px; color: var(--muted); font-weight: 600; }
 code, kbd { font: 14px ui-monospace, "SF Mono", Menlo, monospace; background: color-mix(in srgb, var(--ink) 8%, transparent); padding: 2px 6px; border-radius: 6px; }
 
 /* FAQ */

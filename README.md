@@ -25,6 +25,14 @@ A shelf in the notch, a clipboard wheel, a tidy menu bar and a few small helpers
 
 ## Installing
 
+The fastest way is one line in Terminal. It downloads the latest release, puts it in Applications and opens it, with no security prompt ([see the script](install.sh)):
+
+```sh
+curl -fsSL https://volodymyrdem.github.io/PoppyDesk/install.sh | bash
+```
+
+Or with the download:
+
 1. Download **PoppyDesk.dmg** and drag PoppyDesk into Applications.
 2. Open it. macOS says it can't check it, since PoppyDesk isn't notarized yet; click **Done**.
 3. Open **System Settings → Privacy & Security**, scroll down and click **Open Anyway** next to PoppyDesk.

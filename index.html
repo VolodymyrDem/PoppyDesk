@@ -33,7 +33,7 @@
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.76c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.66zM14.1 6.04c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.05-.52 2.68-1.28z"/></svg>
       Download for Mac
     </a>
-    <p class="meta"><span class="version-label">Free</span> · macOS 14 or later · Apple silicon &amp; Intel</p>
+    <p class="meta"><span class="version-label">Free</span> · macOS 14 or later · Apple silicon &amp; Intel · <a href="#install">or install from Terminal</a></p>
 
     <div class="macbook" id="demo">
       <div class="lid">
@@ -163,14 +163,19 @@
   <section class="alt" id="install">
     <div class="wrap">
       <h2>Installing takes a minute.</h2>
-      <p class="section-lead">PoppyDesk isn't from the App Store yet, so macOS asks you to confirm it once.</p>
+      <p class="section-lead">PoppyDesk isn't from the App Store yet, so a downloaded copy needs your OK once. Paste one line into Terminal and it's skipped.</p>
+      <div class="terminal">
+        <div class="terminal-head"><span>Fastest: in Terminal</span><button class="copy" type="button" data-copy="curl -fsSL https://volodymyrdem.github.io/PoppyDesk/install.sh | bash">Copy</button></div>
+        <pre><code>curl -fsSL https://volodymyrdem.github.io/PoppyDesk/install.sh | bash</code></pre>
+        <p>Downloads the latest PoppyDesk from GitHub, puts it in Applications and opens it. <a href="install.sh">See what it does</a>.</p>
+      </div>
+      <h3 class="or">Or with the download</h3>
       <div class="steps">
         <div class="step"><h3>Download</h3><p>Open <b>PoppyDesk.dmg</b> and drag PoppyDesk into Applications.</p></div>
         <div class="step"><h3>Open it</h3><p>Open PoppyDesk from Applications. macOS says it can't check it; click <b>Done</b>.</p></div>
-        <div class="step"><h3>Allow it</h3><p>Open <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to PoppyDesk.</p></div>
+        <div class="step"><h3>Allow it</h3><p>Scroll to the bottom of <b>Privacy &amp; Security</b> and click <b>Open Anyway</b> next to PoppyDesk.</p><a class="button small" href="x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension">Open Privacy &amp; Security</a></div>
         <div class="step"><h3>Enjoy</h3><p>Pick your modules. From then on PoppyDesk updates itself, no more asking.</p></div>
       </div>
-      <p class="note">Prefer Terminal? After dragging it to Applications, run <code>xattr -dr com.apple.quarantine /Applications/PoppyDesk.app</code> and open it.</p>
     </div>
   </section>
 
@@ -178,7 +183,7 @@
     <div class="wrap" style="max-width:820px">
       <h2 class="center">Questions</h2>
       <details><summary>Is PoppyDesk free?</summary><p>Yes, every module.</p></details>
-      <details><summary>Why does macOS warn about it?</summary><p>Apps from outside the App Store need to be checked by Apple ("notarized") to open without a question. PoppyDesk isn't yet, so macOS asks you to confirm once. Updates install without asking again.</p></details>
+      <details><summary>Why does macOS warn about it?</summary><p>Apps from outside the App Store need to be checked by Apple ("notarized") to open without a question. PoppyDesk isn't yet, so macOS asks you to confirm once, unless you <a href="#install">install it from Terminal</a>. Updates install without asking again.</p></details>
       <details><summary>How does it update?</summary><p>PoppyDesk checks for a new version once a day and offers to install it in a click. Turn that off, or have updates install on their own, in <b>Settings → About</b>.</p></details>
       <details><summary>Does it work on Macs without a notch?</summary><p>Yes. Macs without one get a black notch at the top of the screen that works the same way.</p></details>
       <details><summary>Which permissions does it ask for?</summary><p>Only what the modules you turn on need, the first time you use them: Accessibility to paste and to tidy the menu bar, Calendar to show your events, the camera for the mirror in the notch, audio for the Sound mixer, and Finder to move files you cut. Each is explained before macOS asks.</p></details>
@@ -193,7 +198,7 @@
       <h2>Get PoppyDesk</h2>
       <p class="section-lead">Free, for macOS 14 Sonoma or later, on Apple silicon and Intel.</p>
       <a class="button big coral download-link" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">Download for Mac</a>
-      <p class="meta"><span class="version-label"></span> <a href="https://github.com/VolodymyrDem/PoppyDesk/releases">What's new</a></p>
+      <p class="meta"><span class="version-label"></span> <a href="https://github.com/VolodymyrDem/PoppyDesk/releases">What's new</a> · <a href="#install">Install from Terminal</a></p>
     </div>
   </section>
 
@@ -329,6 +334,14 @@
       const version = item && item.getElementsByTagNameNS("http://www.andymatuschak.org/xml-namespaces/sparkle", "shortVersionString")[0];
       if (version) document.querySelectorAll(".version-label").forEach(l => l.textContent = `Version ${version.textContent}`);
     }).catch(() => {});
+
+    // Copies the install command.
+    document.querySelectorAll("button.copy").forEach(button => button.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(button.dataset.copy); } catch { return; }
+      button.textContent = "Copied";
+      button.classList.add("done");
+      setTimeout(() => { button.textContent = "Copy"; button.classList.remove("done"); }, 1600);
+    }));
   </script>
 </body>
 </html>
