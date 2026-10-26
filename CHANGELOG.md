@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- **Keep Awake** is its own module now: put its cup in the notch or in the menu bar, where it counts down beside the icon.
+- **Keep Awake** has 30 minutes instead of 5 hours, and **Custom…** for any length or until a time of day. Type it like the notch timer, or scroll over the hours and minutes, with a tap on the trackpad for each step.
+- **Menu Bar** is in beta: it's off until you turn it on, and is turned off once after this update. Turn it back on in **Settings → Modules** if you'd like it.
+
 ## 0.1.0
 
 The first release. Turn on only the modules you want in **Settings → Modules**.

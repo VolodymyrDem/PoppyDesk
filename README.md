@@ -15,9 +15,9 @@ A shelf in the notch, a clipboard wheel, a tidy menu bar and a few small helpers
 | **Notch** | Hover the notch for what's playing, your week, a timer and a stopwatch, a shelf for files and AirDrop. |
 | **Clipboard Wheel** | Drag anything, tap Control, and drop on Copy, Cut, Copy Path, AirDrop and more. |
 | **Clipboard History** | Everything you copy, a shortcut away, with search and pins. |
-| **Menu Bar** | Click the poppy to hide the icons left of its divider. |
+| **Menu Bar** | *Beta, off until you turn it on.* Click the poppy to hide the icons left of its divider. |
 | **Battery** | How full it is and where the power goes, with the watts coming in by the notch. |
-| **Keep Awake** | Keeps the Mac from sleeping for a while. |
+| **Keep Awake** | Keeps the Mac from sleeping for as long as you like, from the notch or the menu bar. |
 | **Eye Breaks** | Reminds you to look at something far away now and then. |
 | **Sound** | Each app's volume, and where the sound goes. |
 
