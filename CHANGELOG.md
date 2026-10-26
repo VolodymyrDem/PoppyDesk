@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- **Notch**: the open notch's bottom corners now follow the cards inside them, so the black edge around them is the same width all the way round.
+
 ## 0.2.0
 
 - **Keep Awake** is its own module now: put its cup in the notch or in the menu bar, where it counts down beside the icon.
