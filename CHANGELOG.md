@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+- **Notch**: the closed notch is now exactly the size of the camera notch, like the real one. Make it bigger in **Settings → Notch** if you'd like.
+- **Notch**: the camera on Home is a card like the others until you click it, instead of a black block.
+- **Settings**: sliders are wider, with − and + for small steps and a button to reset them.
+
 ## 0.2.1
 
 - **Notch**: the open notch's bottom corners now follow the cards inside them, so the black edge around them is the same width all the way round.
