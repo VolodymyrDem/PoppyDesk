@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.2.2</title>
+      <pubDate>Mon, 26 Oct 2026 17:48:19 GMT</pubDate>
+      <sparkle:version>52</sparkle:version>
+      <sparkle:shortVersionString>0.2.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Notch</b>: the closed notch is now exactly the size of the camera notch, like the real one. Make it bigger in <b>Settings → Notch</b> if you&#x27;d like.</li><li><b>Notch</b>: the camera on Home is a card like the others until you click it, instead of a black block.</li><li><b>Settings</b>: sliders are wider, with − and + for small steps and a button to reset them.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.2.2/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="sdW83mxVPfR3PyFnjhOUOX/U6jlVcYzEohDj/3bINk/v7mXcXhKniSMxnABhGe8WMAymZFKvChX07j6Cc4jiAQ==" length="10750954"/>
+    </item>
+    <item>
       <title>Version 0.2.1</title>
       <pubDate>Mon, 26 Oct 2026 17:12:42 GMT</pubDate>
       <sparkle:version>50</sparkle:version>
