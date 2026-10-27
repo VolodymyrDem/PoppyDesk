@@ -1,9 +1,13 @@
 # Changelog
 
-## Unreleased
+## 0.3.0
 
 - **Quick Wheel** (beta): hold ⌃⌥⌘ for a wheel of brightness, volume, media, Mission Control, PoppyDesk's own things and your shortcuts, apps, links and keystrokes. Let go over one, or tap the keys and click.
 - **Notch**: what's playing steps aside while an app is full screen; turn that off in **Settings → Notch**.
+- **Clipboard Wheel**: turn the pages with ← → too, like the Quick Wheel. A held arrow key turns them one after another without flickering.
+- **Quick Wheel**: your shortcuts show their own icon from the Shortcuts app.
+- **Quick Wheel**: the poppy sits in the middle and turns into a cross while you rest on it. Swap it for your own picture, as an icon or filling the circle, in its settings.
+- **Sound**: an app turned below 100% no longer goes silent. Calls show as FaceTime instead of a background service.
 - **Onboarding and Settings** show PoppyDesk's own module icons.
 
 ## 0.2.2
