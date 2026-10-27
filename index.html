@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PoppyDesk — your notch, finally useful</title>
-  <meta name="description" content="A free, modular menu bar app for Mac: a notch shelf, a clipboard wheel, a tidy menu bar, battery, sound per app and more. Turn on only what you need.">
+  <meta name="description" content="A free, modular menu bar app for Mac: a notch shelf, a clipboard wheel, a quick wheel of actions, a tidy menu bar, battery, sound per app and more. Turn on only what you need.">
   <meta property="og:title" content="PoppyDesk — your notch, finally useful">
   <meta property="og:description" content="A free, modular menu bar app for Mac. Turn on only what you need.">
   <meta property="og:image" content="https://volodymyrdem.github.io/PoppyDesk/assets/icon.png">
@@ -92,6 +92,7 @@
       <div class="grid">
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-notch.png)"></i></div><h3>Notch</h3><p>Hover the notch and it opens into a dashboard: what's playing, your week, a timer and a stopwatch, a shelf for files and AirDrop.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-wheel.png)"></i></div><h3>Clipboard Wheel</h3><p>Drag files or anything else, tap Control, and drop on Copy, Cut, Copy Path, AirDrop and more.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-quickwheel.png)"></i></div><h3>Quick Wheel <span class="beta" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p>Hold ⌃⌥⌘ for a wheel of brightness, volume, media, Mission Control and your own shortcuts, apps and links. Let go over one.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-history.png)"></i></div><h3>Clipboard History</h3><p>Everything you copy, a shortcut away, with search and pins, pasted right where you were.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-menubar.png)"></i></div><h3>Menu Bar <span class="beta" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p>Click the poppy to hide the icons left of its divider, and again to bring them back. Off until you turn it on.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-battery.png)"></i></div><h3>Battery</h3><p>How full it is and where the power goes, with a bubble by the notch showing the watts coming in.</p></div>
@@ -138,6 +139,7 @@
       <div class="toggles" id="toggles">
         <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-notch.png)"></i>Notch</span><button class="switch" role="switch" aria-checked="true"></button></div>
         <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-wheel.png)"></i>Clipboard Wheel</span><button class="switch" role="switch" aria-checked="true"></button></div>
+        <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-quickwheel.png)"></i>Quick Wheel<span class="beta">Beta</span></span><button class="switch" role="switch" aria-checked="false"></button></div>
         <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-menubar.png)"></i>Menu Bar<span class="beta">Beta</span></span><button class="switch" role="switch" aria-checked="false"></button></div>
         <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-awake.png)"></i>Keep Awake</span><button class="switch" role="switch" aria-checked="true"></button></div>
         <div class="toggle"><span><i class="icon" style="--icon:url(assets/icon-sound.png)"></i>Sound</span><button class="switch" role="switch" aria-checked="false"></button></div>
@@ -186,7 +188,7 @@
       <details><summary>Why does macOS warn about it?</summary><p>Apps from outside the App Store need to be checked by Apple ("notarized") to open without a question. PoppyDesk isn't yet, so macOS asks you to confirm once, unless you <a href="#install">install it from Terminal</a>. Updates install without asking again.</p></details>
       <details><summary>How does it update?</summary><p>PoppyDesk checks for a new version once a day and offers to install it in a click. Turn that off, or have updates install on their own, in <b>Settings → About</b>.</p></details>
       <details><summary>Does it work on Macs without a notch?</summary><p>Yes. Macs without one get a black notch at the top of the screen that works the same way.</p></details>
-      <details><summary>Which permissions does it ask for?</summary><p>Only what the modules you turn on need, the first time you use them: Accessibility to paste and to tidy the menu bar, Calendar to show your events, the camera for the mirror in the notch, audio for the Sound mixer, and Finder to move files you cut. Each is explained before macOS asks.</p></details>
+      <details><summary>Which permissions does it ask for?</summary><p>Only what the modules you turn on need, the first time you use them: Accessibility to paste, to tidy the menu bar and to open the Quick Wheel from any app, Calendar to show your events, the camera for the mirror in the notch, audio for the Sound mixer, and Finder to move files you cut. Each is explained before macOS asks.</p></details>
       <details><summary>How do I uninstall it?</summary><p>Quit it from the poppy in the menu bar and drag PoppyDesk from Applications to the Trash.</p></details>
       <details><summary>Found a bug or have an idea?</summary><p><a href="https://github.com/VolodymyrDem/PoppyDesk/issues/new/choose">Tell me on GitHub</a>, or use <b>Settings → About → Report a Problem</b> in the app, which fills in your versions for you.</p></details>
     </div>
