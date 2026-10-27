@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- **Quick Wheel** (beta): hold ⌃⌥⌘ for a wheel of brightness, volume, media, Mission Control, PoppyDesk's own things and your shortcuts, apps, links and keystrokes. Let go over one, or tap the keys and click.
+- **Notch**: what's playing steps aside while an app is full screen; turn that off in **Settings → Notch**.
+- **Onboarding and Settings** show PoppyDesk's own module icons.
+
 ## 0.2.2
 
 - **Notch**: the closed notch is now exactly the size of the camera notch, like the real one. Make it bigger in **Settings → Notch** if you'd like.
