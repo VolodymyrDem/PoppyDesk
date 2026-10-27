@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.3.0</title>
+      <pubDate>Tue, 27 Oct 2026 12:50:17 GMT</pubDate>
+      <sparkle:version>56</sparkle:version>
+      <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Quick Wheel</b> (beta): hold ⌃⌥⌘ for a wheel of brightness, volume, media, Mission Control, PoppyDesk&#x27;s own things and your shortcuts, apps, links and keystrokes. Let go over one, or tap the keys and click.</li><li><b>Notch</b>: what&#x27;s playing steps aside while an app is full screen; turn that off in <b>Settings → Notch</b>.</li><li><b>Clipboard Wheel</b>: turn the pages with ← → too, like the Quick Wheel. A held arrow key turns them one after another without flickering.</li><li><b>Quick Wheel</b>: your shortcuts show their own icon from the Shortcuts app.</li><li><b>Quick Wheel</b>: the poppy sits in the middle and turns into a cross while you rest on it. Swap it for your own picture, as an icon or filling the circle, in its settings.</li><li><b>Sound</b>: an app turned below 100% no longer goes silent. Calls show as FaceTime instead of a background service.</li><li><b>Onboarding and Settings</b> show PoppyDesk&#x27;s own module icons.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.3.0/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="MijDDquBUAMP402htzJ453h/AH2JU05jnHSTAD9BLunbGnFlCJpY0MpYlcAhAF7sfsXR45pwQCrVTyifPXHtDw==" length="11606038"/>
+    </item>
+    <item>
       <title>Version 0.2.2</title>
       <pubDate>Mon, 26 Oct 2026 17:48:19 GMT</pubDate>
       <sparkle:version>52</sparkle:version>
