@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.4.0</title>
+      <pubDate>Mon, 02 Nov 2026 11:29:54 GMT</pubDate>
+      <sparkle:version>58</sparkle:version>
+      <sparkle:shortVersionString>0.4.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Trackpad NumPad</b> (beta): press ⌥⌘N, or double-tap the trackpad&#x27;s top-left corner, and the trackpad&#x27;s right half becomes a numeric keypad that comes out of the notch. Tap or click a key to type it; Esc puts it away.</li><li><b>Quick Wheel</b>: double-tap anywhere on the trackpad with two fingers to open it under the pointer. It takes the place of Smart Zoom; turn it off in its settings.</li><li><b>Quick Wheel</b>: swipe sideways with two fingers to turn the page.</li><li><b>Notch</b>: the closed notch matches the camera notch exactly, down to the half point, with rounder corners like the real one.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.4.0/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="IZejLmPOX6HaYVFpcsx2L1RfFMdlM6OR5l36inySZVTTwiYNFEAuien/ZVJr9oJfUFucoCjKapoAZNbBsWh4DQ==" length="11872245"/>
+    </item>
+    <item>
       <title>Version 0.3.0</title>
       <pubDate>Tue, 27 Oct 2026 12:50:17 GMT</pubDate>
       <sparkle:version>56</sparkle:version>
