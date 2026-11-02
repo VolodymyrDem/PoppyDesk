@@ -7,15 +7,18 @@
   <meta name="description" content="A free, modular menu bar app for Mac: a notch shelf, a clipboard wheel, a quick wheel of actions, a tidy menu bar, battery, sound per app and more. Turn on only what you need.">
   <meta property="og:title" content="PoppyDesk — your notch, finally useful">
   <meta property="og:description" content="A free, modular menu bar app for Mac. Turn on only what you need.">
+  <link rel="preload" as="image" href="film/l/0000.webp" media="(min-width: 700px)">
+  <link rel="preload" as="image" href="film/s/0000.webp" media="(max-width: 699px)">
   <meta property="og:image" content="https://volodymyrdem.github.io/PoppyDesk/assets/icon.png">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
+  <nav class="on-film" id="nav">
     <div class="wrap">
       <a class="brand" href="./"><img src="assets/icon.png" alt="">PoppyDesk</a>
       <div class="links">
+        <a href="#try">Try it</a>
         <a href="#modules">Modules</a>
         <a href="#privacy">Privacy</a>
         <a href="#install">Install</a>
@@ -25,16 +28,55 @@
     </div>
   </nav>
 
-  <header class="hero wrap">
-    <img class="app-icon" src="assets/icon.png" alt="PoppyDesk icon">
-    <h1>Your notch,<br><em>finally useful.</em></h1>
-    <p class="lead">A shelf in the notch, a clipboard wheel, a tidy menu bar and a few small helpers. One free app; you turn on only the parts you want.</p>
-    <a class="button big coral download-link" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.76c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.66zM14.1 6.04c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.05-.52 2.68-1.28z"/></svg>
-      Download for Mac
-    </a>
-    <p class="meta"><span class="version-label">Free</span> · macOS 14 or later · Apple silicon &amp; Intel · <a href="#install">or install from Terminal</a></p>
+  <section class="film" id="film" aria-label="PoppyDesk on a MacBook, as you scroll">
+    <div class="stage">
+      <canvas id="film-canvas" aria-hidden="true"></canvas>
+      <div class="scrim" aria-hidden="true"></div>
+      <div class="cap top hero-cap" data-from="0" data-to="26">
+        <img class="app-icon" src="assets/icon.png" alt="PoppyDesk icon">
+        <h1>Your notch,<br><em>finally useful.</em></h1>
+        <p class="lead">A dashboard in the notch, a numpad on your trackpad, wheels of actions and a tidy menu bar. One free app; you turn on only the parts you want.</p>
+        <p class="scroll-hint" aria-hidden="true">Scroll</p>
+      </div>
+      <div class="cap" data-from="74" data-to="100">
+        <h2>Open it up.</h2>
+        <p>PoppyDesk lives in your menu bar and your notch, and stays out of the way until you need it.</p>
+      </div>
+      <div class="cap" data-from="112" data-to="135">
+        <h2>The notch, now a dashboard.</h2>
+        <p>Point at it: what's playing, your week, a timer and the camera. Plus a shelf for files and AirDrop.</p>
+      </div>
+      <div class="cap" data-from="140" data-to="158">
+        <h2>A numpad, out of the notch.</h2>
+        <p>Press ⌥⌘N, or double-tap the trackpad's top-left corner, and the keys come down.</p>
+      </div>
+      <div class="cap" data-from="172" data-to="199">
+        <h2>Type numbers on the trackpad.</h2>
+        <p>Its right half becomes the keypad. Tap or click a key to type it; the left half still moves the pointer.</p>
+      </div>
+      <div class="cap" data-from="200" data-to="214">
+        <h2>Two fingers. Double-tap.</h2>
+      </div>
+      <div class="cap" data-from="230" data-to="257">
+        <h2>The Quick Wheel, right where you are.</h2>
+        <p>Volume, media, Mission Control, and your own shortcuts, apps and links. Swipe to turn the page.</p>
+      </div>
+      <div class="cap" data-from="276" data-to="300">
+        <h2>A tidy menu bar.</h2>
+        <p>Click the poppy and the icons left of it slide away. Click it again to bring them back.</p>
+      </div>
+      <div class="cap end" data-from="318" data-to="335">
+        <h2>Only what you need.</h2>
+        <a class="button big coral download-link" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">Download for Mac</a>
+        <p class="meta"><span class="version-label">Free</span> · macOS 14 or later · Apple silicon &amp; Intel</p>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="film-progress"></i></div>
+    </div>
+  </section>
 
+  <header class="hero wrap" id="try">
+    <h2>Try the notch.</h2>
+    <p class="section-lead">Real PoppyDesk, rendered straight from the app.</p>
     <div class="macbook" id="demo">
       <div class="lid">
         <div class="display">
@@ -82,17 +124,18 @@
         <button role="radio" data-look="glass" aria-checked="false"><span class="swatch glass"></span>Clear glass</button>
       </div>
     </div>
-    <p class="hint">Real PoppyDesk, rendered straight from the app. Point at the notch, try it in glass, or click the poppy in the menu bar.</p>
+    <p class="hint">Point at the notch, try it in glass, or click the poppy in the menu bar.</p>
   </header>
 
   <section id="modules">
     <div class="wrap">
-      <h2>Eight little helpers.<br>Pick yours.</h2>
+      <h2>Ten little helpers.<br>Pick yours.</h2>
       <p class="section-lead">Each one is a module. Turned off, it doesn't run and doesn't ask for anything.</p>
       <div class="grid">
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-notch.png)"></i></div><h3>Notch</h3><p>Hover the notch and it opens into a dashboard: what's playing, your week, a timer and a stopwatch, a shelf for files and AirDrop.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-wheel.png)"></i></div><h3>Clipboard Wheel</h3><p>Drag files or anything else, tap Control, and drop on Copy, Cut, Copy Path, AirDrop and more.</p></div>
-        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-quickwheel.png)"></i></div><h3>Quick Wheel <span class="beta" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p>Hold ⌃⌥⌘ for a wheel of brightness, volume, media, Mission Control and your own shortcuts, apps and links. Let go over one.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-quickwheel.png)"></i></div><h3>Quick Wheel <span class="beta" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p>Hold ⌃⌥⌘ or double-tap the trackpad with two fingers for a wheel of brightness, volume, media, Mission Control and your own shortcuts, apps and links. Swipe to turn the page.</p></div>
+        <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-numpad.png)"></i></div><h3>NumPad</h3><p>Press ⌥⌘N and the trackpad's right half becomes a numeric keypad, shown coming out of the notch. Tap or click a key to type it.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-history.png)"></i></div><h3>Clipboard History</h3><p>Everything you copy, a shortcut away, with search and pins, pasted right where you were.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-menubar.png)"></i></div><h3>Menu Bar <span class="beta" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p>Click the poppy to hide the icons left of its divider, and again to bring them back. Off until you turn it on.</p></div>
         <div class="module"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-battery.png)"></i></div><h3>Battery</h3><p>How full it is and where the power goes, with a bubble by the notch showing the watts coming in.</p></div>
@@ -207,6 +250,7 @@
   <footer>
     <div class="wrap">
       <span>© 2026 Volodymyr Demianchuk</span>
+      <p class="credit">MacBook model: <a href="https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b303144f78490007d91ff57c4">“macbook pro M3 16 inch 2024”</a> by jackbaeten, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, lid made to open. PoppyDesk isn't made by or affiliated with Apple. Mac and MacBook are trademarks of Apple Inc.</p>
       <div class="links">
         <a href="privacy.html">Privacy</a>
         <a href="license.html">License</a>
@@ -217,6 +261,98 @@
   </footer>
 
   <script>
+    // The film: rendered frames of a MacBook, scrubbed by scrolling, with words for each scene.
+    (() => {
+      const FRAMES = 335;
+      const film = document.getElementById("film");
+      const canvas = document.getElementById("film-canvas");
+      const ctx = canvas.getContext("2d");
+      const caps = [...film.querySelectorAll(".cap")];
+      const bar = document.getElementById("film-progress");
+      const nav = document.getElementById("nav");
+      const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const size = Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) >= 1400 ? "l" : "s";
+      const frames = new Array(FRAMES);
+      const name = i => `film/${size}/${String(i).padStart(4, "0")}.webp`;
+
+      // Every 16th first, then the ones between, so the whole film can be scrubbed early on.
+      const order = [];
+      for (const step of [16, 8, 4, 2, 1])
+        for (let i = 0; i < FRAMES; i += step) if (!order.includes(i)) order.push(i);
+      let next = 0;
+      const load = () => {
+        if (next >= order.length) return;
+        const i = order[next++], img = new Image();
+        img.decoding = "async";
+        img.onload = () => { frames[i] = img; if (Math.abs(i - shown) < 20 || shown < 0) { dirty = true; wake(); } load(); };
+        img.onerror = load;
+        img.src = name(i);
+      };
+      for (let k = 0; k < 6; k++) load();
+
+      let target = 0, current = 0, shown = -1, dirty = true;
+      const nearest = i => {
+        for (let d = 0; d < FRAMES; d++) {
+          if (frames[i - d]) return frames[i - d];
+          if (frames[i + d]) return frames[i + d];
+        }
+      };
+      const resize = () => {
+        const r = Math.min(devicePixelRatio || 1, 2);
+        canvas.width = Math.round(canvas.clientWidth * r);
+        canvas.height = Math.round(canvas.clientHeight * r);
+        dirty = true;
+      };
+      const draw = () => {
+        const i = Math.round(current), img = nearest(i);
+        if (!img) return;
+        const cw = canvas.width, ch = canvas.height, iw = img.naturalWidth, ih = img.naturalHeight;
+        // Fills a wide window; on a tall one it keeps nearly all its width, as the scenes are framed wide.
+        const s = cw >= ch ? Math.max(cw / iw, ch / ih) : Math.max(cw / iw, ch * 0.36 / ih);
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, cw, ch);
+        // At the start it sits lower, under the words, and rises as the lid opens.
+        const k = Math.min(Math.max(current / 44, 0), 1), low = ch * (cw >= ch ? 0.3 : 0.2) * (1 - k * k * (3 - 2 * k));
+        ctx.drawImage(img, (cw - iw * s) / 2, (ch - ih * s) / (cw >= ch ? 2 : 2.4) + low, iw * s, ih * s);
+        shown = frames[i] ? i : -1;
+      };
+      const progress = () => {
+        const r = film.getBoundingClientRect();
+        return Math.min(Math.max(-r.top / (r.height - innerHeight), 0), 1);
+      };
+      const fade = (f, from, to) => {
+        const e = 5;
+        return Math.min(Math.max(Math.min((f - from + e) / e, (to - f + e) / e), 0), 1);
+      };
+      const tick = () => {
+        const p = progress();
+        target = p * (FRAMES - 1);
+        const before = current;
+        current = still ? target : current + (target - current) * 0.18;
+        if (Math.abs(target - current) < 0.01) current = target;
+        if (dirty || Math.round(before) !== Math.round(current) || shown !== Math.round(current)) { dirty = false; draw(); }
+        for (const c of caps) {
+          const o = fade(current, +c.dataset.from, +c.dataset.to);
+          c.style.opacity = o;
+          c.style.transform = `translateY(${(1 - o) * 14}px)`;
+          c.classList.toggle("shown", o > 0.5);
+        }
+        bar.style.transform = `scaleX(${p})`;
+        nav.classList.toggle("on-film", film.getBoundingClientRect().bottom > 56);
+        // Rests once it has caught up with the scroll, so an idle page costs nothing.
+        if (current !== target || dirty) requestAnimationFrame(tick); else running = false;
+      };
+      let running = false;
+      const wake = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
+      addEventListener("scroll", wake, { passive: true });
+      addEventListener("resize", () => { resize(); wake(); });
+      resize();
+      // #frame=120 starts at that frame, handy for linking to a scene.
+      const at = /frame=(\d+)/.exec(location.hash);
+      if (at) scrollTo({ top: film.offsetTop + Math.min(+at[1] / (FRAMES - 1), 1) * (film.offsetHeight - innerHeight), behavior: "instant" });
+      wake();
+    })();
+
     // The notch opens on hover like the real one, and shows off its tabs on its own until someone tries it.
     const demo = document.getElementById("demo");
     const zone = document.getElementById("notch-zone");
