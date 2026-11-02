@@ -273,7 +273,9 @@
       const nav = document.getElementById("nav");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const size = Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) >= 1400 ? "l" : "s";
-      const name = i => `film/${size}/${String(i).padStart(4, "0")}.webp`;
+      // Bump when the frames are rendered again, so no browser mixes in ones it kept from before.
+      const CUT = 2;
+      const name = i => `film/${size}/${String(i).padStart(4, "0")}.webp?cut=${CUT}`;
       // Every frame is fetched, but only those near where you are are decoded and kept ready to draw.
       const blobs = new Array(FRAMES), ready = new Map(), decoding = new Set();
       const KEEP = size === "l" ? 16 : 32;
