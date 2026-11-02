@@ -32,40 +32,40 @@
     <div class="stage">
       <canvas id="film-canvas" aria-hidden="true"></canvas>
       <div class="scrim" aria-hidden="true"></div>
-      <div class="cap top hero-cap" data-from="0" data-to="26">
+      <div class="cap top hero-cap" data-from="0" data-to="14">
         <img class="app-icon" src="assets/icon.png" alt="PoppyDesk icon">
         <h1>Your notch,<br><em>finally useful.</em></h1>
         <p class="lead">A dashboard in the notch, a numpad on your trackpad, wheels of actions and a tidy menu bar. One free app; you turn on only the parts you want.</p>
         <p class="scroll-hint" aria-hidden="true">Scroll</p>
       </div>
-      <div class="cap" data-from="74" data-to="100">
+      <div class="cap" data-from="23" data-to="60">
         <h2>Open it up.</h2>
         <p>PoppyDesk lives in your menu bar and your notch, and stays out of the way until you need it.</p>
       </div>
-      <div class="cap" data-from="112" data-to="135">
+      <div class="cap" data-from="74" data-to="97">
         <h2>The notch, now a dashboard.</h2>
         <p>Point at it: what's playing, your week, a timer and the camera. Plus a shelf for files and AirDrop.</p>
       </div>
-      <div class="cap" data-from="140" data-to="158">
+      <div class="cap" data-from="102" data-to="123">
         <h2>A numpad, out of the notch.</h2>
         <p>Press ⌥⌘N, or double-tap the trackpad's top-left corner, and the keys come down.</p>
       </div>
-      <div class="cap" data-from="172" data-to="199">
+      <div class="cap" data-from="144" data-to="171">
         <h2>Type numbers on the trackpad.</h2>
         <p>Its right half becomes the keypad. Tap or click a key to type it; the left half still moves the pointer.</p>
       </div>
-      <div class="cap" data-from="200" data-to="214">
+      <div class="cap" data-from="172" data-to="188">
         <h2>Two fingers. Double-tap.</h2>
       </div>
-      <div class="cap" data-from="230" data-to="257">
+      <div class="cap" data-from="211" data-to="238">
         <h2>The Quick Wheel, right where you are.</h2>
         <p>Volume, media, Mission Control, and your own shortcuts, apps and links. Swipe to turn the page.</p>
       </div>
-      <div class="cap" data-from="276" data-to="300">
+      <div class="cap" data-from="266" data-to="292">
         <h2>A tidy menu bar.</h2>
         <p>Click the poppy and the icons left of it slide away. Click it again to bring them back.</p>
       </div>
-      <div class="cap end" data-from="318" data-to="335">
+      <div class="cap end" data-from="319" data-to="337">
         <h2>Only what you need.</h2>
         <a class="button big coral download-link" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">Download for Mac</a>
         <p class="meta"><span class="version-label">Free</span> · macOS 14 or later · Apple silicon &amp; Intel</p>
@@ -263,17 +263,20 @@
   <script>
     // The film: rendered frames of a MacBook, scrubbed by scrolling, with words for each scene.
     (() => {
-      const FRAMES = 335;
+      const FRAMES = 337;
       const film = document.getElementById("film");
       const canvas = document.getElementById("film-canvas");
       const ctx = canvas.getContext("2d");
       const caps = [...film.querySelectorAll(".cap")];
+      const hero = film.querySelector(".hero-cap");
       const bar = document.getElementById("film-progress");
       const nav = document.getElementById("nav");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const size = Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) >= 1400 ? "l" : "s";
-      const frames = new Array(FRAMES);
       const name = i => `film/${size}/${String(i).padStart(4, "0")}.webp`;
+      // Every frame is fetched, but only those near where you are are decoded and kept ready to draw.
+      const blobs = new Array(FRAMES), ready = new Map(), decoding = new Set();
+      const KEEP = size === "l" ? 16 : 32;
 
       // Every 16th first, then the ones between, so the whole film can be scrubbed early on.
       const order = [];
@@ -282,19 +285,41 @@
       let next = 0;
       const load = () => {
         if (next >= order.length) return;
-        const i = order[next++], img = new Image();
-        img.decoding = "async";
-        img.onload = () => { frames[i] = img; if (Math.abs(i - shown) < 20 || shown < 0) { dirty = true; wake(); } load(); };
-        img.onerror = load;
-        img.src = name(i);
+        const i = order[next++];
+        fetch(name(i)).then(r => r.ok ? r.blob() : null).then(b => {
+          if (b) { blobs[i] = b; if (Math.abs(i - current) < KEEP) decode(); }
+        }).catch(() => {}).finally(load);
       };
       for (let k = 0; k < 6; k++) load();
 
-      let target = 0, current = 0, shown = -1, dirty = true;
+      let target = 0, current = 0, drawn = -1, dirty = true;
+      // The fetched frames closest to `current`, the ones to have decoded.
+      const wanted = () => {
+        const out = [], c = Math.round(current);
+        for (let d = 0; d < FRAMES && out.length < KEEP; d++) {
+          if (blobs[c - d]) out.push(c - d);
+          if (d && blobs[c + d] && out.length < KEEP) out.push(c + d);
+        }
+        return out;
+      };
+      const decode = () => {
+        const want = wanted(), keep = new Set(want);
+        for (const [i, bmp] of ready) if (!keep.has(i)) { bmp.close(); ready.delete(i); }
+        for (const i of want) {
+          if (decoding.size >= 3) break;
+          if (ready.has(i) || decoding.has(i)) continue;
+          decoding.add(i);
+          createImageBitmap(blobs[i]).then(bmp => {
+            decoding.delete(i);
+            if (wanted().includes(i)) { ready.set(i, bmp); dirty = true; } else bmp.close();
+            decode(); wake();
+          }, () => decoding.delete(i));
+        }
+      };
       const nearest = i => {
         for (let d = 0; d < FRAMES; d++) {
-          if (frames[i - d]) return frames[i - d];
-          if (frames[i + d]) return frames[i + d];
+          if (ready.has(i - d)) return ready.get(i - d);
+          if (ready.has(i + d)) return ready.get(i + d);
         }
       };
       const resize = () => {
@@ -304,17 +329,28 @@
         dirty = true;
       };
       const draw = () => {
-        const i = Math.round(current), img = nearest(i);
-        if (!img) return;
-        const cw = canvas.width, ch = canvas.height, iw = img.naturalWidth, ih = img.naturalHeight;
+        const a = Math.floor(current), t = current - a;
+        const A = ready.get(a) || nearest(Math.round(current)), B = t > 0.02 && ready.get(a) && ready.get(a + 1);
+        if (!A) return;
+        const cw = canvas.width, ch = canvas.height, iw = A.width, ih = A.height;
         // Fills a wide window; on a tall one it keeps nearly all its width, as the scenes are framed wide.
         const s = cw >= ch ? Math.max(cw / iw, ch / ih) : Math.max(cw / iw, ch * 0.36 / ih);
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, cw, ch);
-        // At the start it sits lower, under the words, and rises as the lid opens.
-        const k = Math.min(Math.max(current / 44, 0), 1), low = ch * (cw >= ch ? 0.3 : 0.2) * (1 - k * k * (3 - 2 * k));
-        ctx.drawImage(img, (cw - iw * s) / 2, (ch - ih * s) / (cw >= ch ? 2 : 2.4) + low, iw * s, ih * s);
-        shown = frames[i] ? i : -1;
+        const x1 = (cw - iw * s) / 2, y1 = (ch - ih * s) / (cw >= ch ? 2 : 2.4);
+        // At the start it stands smaller under the words, then grows into the frame as you scroll on.
+        // In the frames the laptop's top is 12% down, and it reaches the bottom edge.
+        const r = canvas.height / canvas.clientHeight, cr = canvas.getBoundingClientRect();
+        const words = (hero.getBoundingClientRect().bottom - cr.top + 12) * r, room = ch - words, H = ih * s;
+        const z0 = Math.min(1, room / (0.9 * H)), y0 = words - 0.12 * H * z0;
+        const k = Math.min(Math.max(current / 20, 0), 1), e = k * k * (3 - 2 * k);
+        const z = z0 + (1 - z0) * e, w = iw * s * z, h = ih * s * z;
+        const x = (cw - w) / 2, y = Math.max(y0, y1) + (y1 - Math.max(y0, y1)) * e;
+        ctx.globalAlpha = 1;
+        ctx.drawImage(A, x, y, w, h);
+        // Between two frames, the next fades in over this one, so a slow scroll still moves smoothly.
+        if (B) { ctx.globalAlpha = t; ctx.drawImage(B, x, y, w, h); ctx.globalAlpha = 1; }
+        drawn = ready.has(a) && (!(t > 0.02) || B) ? current : -1;
       };
       const progress = () => {
         const r = film.getBoundingClientRect();
@@ -330,7 +366,8 @@
         const before = current;
         current = still ? target : current + (target - current) * 0.18;
         if (Math.abs(target - current) < 0.01) current = target;
-        if (dirty || Math.round(before) !== Math.round(current) || shown !== Math.round(current)) { dirty = false; draw(); }
+        if (Math.round(before) !== Math.round(current) || dirty) decode();
+        if (dirty || drawn !== current) { dirty = false; draw(); }
         for (const c of caps) {
           const o = fade(current, +c.dataset.from, +c.dataset.to);
           c.style.opacity = o;
@@ -346,6 +383,8 @@
       const wake = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
       addEventListener("scroll", wake, { passive: true });
       addEventListener("resize", () => { resize(); wake(); });
+      // The laptop stands under the words, so it moves when they change size (as the font arrives).
+      new ResizeObserver(() => { dirty = true; wake(); }).observe(hero);
       resize();
       // #frame=120 starts at that frame, handy for linking to a scene.
       const at = /frame=(\d+)/.exec(location.hash);
