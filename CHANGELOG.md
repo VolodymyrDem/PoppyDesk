@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+
+- **Trackpad NumPad** (beta): press ⌥⌘N, or double-tap the trackpad's top-left corner, and the trackpad's right half becomes a numeric keypad that comes out of the notch. Tap or click a key to type it; Esc puts it away.
+- **Quick Wheel**: double-tap anywhere on the trackpad with two fingers to open it under the pointer. It takes the place of Smart Zoom; turn it off in its settings.
+- **Quick Wheel**: swipe sideways with two fingers to turn the page.
+- **Notch**: the closed notch matches the camera notch exactly, down to the half point, with rounder corners like the real one.
+
 ## 0.3.0
 
 - **Quick Wheel** (beta): hold ⌃⌥⌘ for a wheel of brightness, volume, media, Mission Control, PoppyDesk's own things and your shortcuts, apps, links and keystrokes. Let go over one, or tap the keys and click.
