@@ -38,34 +38,34 @@
         <p class="lead">A dashboard in the notch, a numpad on your trackpad, wheels of actions and a tidy menu bar. One free app; you turn on only the parts you want.</p>
         <p class="scroll-hint" aria-hidden="true">Scroll</p>
       </div>
-      <div class="cap" data-from="23" data-to="60">
+      <div class="cap" data-from="23" data-to="204">
         <h2>Open it up.</h2>
         <p>PoppyDesk lives in your menu bar and your notch, and stays out of the way until you need it.</p>
       </div>
-      <div class="cap" data-from="74" data-to="97">
+      <div class="cap" data-from="221" data-to="244">
         <h2>The notch, now a dashboard.</h2>
         <p>Point at it: what's playing, your week, a timer and the camera. Plus a shelf for files and AirDrop.</p>
       </div>
-      <div class="cap" data-from="102" data-to="123">
+      <div class="cap" data-from="249" data-to="310">
         <h2>A numpad, out of the notch.</h2>
         <p>Press ⌥⌘N, or double-tap the trackpad's top-left corner, and the keys come down.</p>
       </div>
-      <div class="cap" data-from="144" data-to="171">
+      <div class="cap" data-from="572" data-to="599">
         <h2>Type numbers on the trackpad.</h2>
         <p>Its right half becomes the keypad. Tap or click a key to type it; the left half still moves the pointer.</p>
       </div>
-      <div class="cap" data-from="172" data-to="188">
+      <div class="cap" data-from="600" data-to="632">
         <h2>Two fingers. Double-tap.</h2>
       </div>
-      <div class="cap" data-from="211" data-to="238">
+      <div class="cap" data-from="951" data-to="979">
         <h2>The Quick Wheel, right where you are.</h2>
         <p>Volume, media, Mission Control, and your own shortcuts, apps and links. Swipe to turn the page.</p>
       </div>
-      <div class="cap" data-from="266" data-to="292">
+      <div class="cap" data-from="1185" data-to="1234">
         <h2>A tidy menu bar.</h2>
         <p>Click the poppy and the icons left of it slide away. Click it again to bring them back.</p>
       </div>
-      <div class="cap end" data-from="319" data-to="337">
+      <div class="cap end" data-from="1528" data-to="1546">
         <h2>Only what you need.</h2>
         <a class="button big coral download-link" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">Download for Mac</a>
         <p class="meta"><span class="version-label">Free</span> · macOS 14 or later · Apple silicon &amp; Intel</p>
@@ -263,7 +263,21 @@
   <script>
     // The film: rendered frames of a MacBook, scrubbed by scrolling, with words for each scene.
     (() => {
-      const FRAMES = 337;
+      const FRAMES = 1546;
+      // How much scroll each step from one frame to the next gets: more where the camera moves (site-3d/pace.py),
+      // shared out among the frames rendered between the first film's (site-3d/plan_frames.py).
+      const PACE = [0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.71,0.74,0.78,0.85,0.47,0.47,0.3467,0.3467,0.3467,0.29,0.29,0.29,0.29,0.256,0.256,0.256,0.256,0.256,0.2333,0.2333,0.2333,0.2333,0.2333,0.2333,0.2483,0.2483,0.2483,0.2483,0.2483,0.2483,0.2271,0.2271,0.2271,0.2271,0.2271,0.2271,0.2271,0.21,0.21,0.21,0.21,0.21,0.21,0.21,0.21,0.2188,0.2188,0.2188,0.2188,0.2188,0.2188,0.2188,0.2188,0.1989,0.1989,0.1989,0.1989,0.1989,0.1989,0.1989,0.1989,0.1989,0.1978,0.1978,0.1978,0.1978,0.1978,0.1978,0.1978,0.1978,0.1978,0.1889,0.1889,0.1889,0.1889,0.1889,0.1889,0.1889,0.1889,0.1889,0.1789,0.1789,0.1789,0.1789,0.1789,0.1789,0.1789,0.1789,0.1789,0.151,0.151,0.151,0.151,0.151,0.151,0.151,0.151,0.151,0.151,0.142,0.142,0.142,0.142,0.142,0.142,0.142,0.142,0.142,0.142,0.138,0.138,0.138,0.138,0.138,0.138,0.138,0.138,0.138,0.138,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.1444,0.1444,0.1444,0.1444,0.1444,0.1444,0.1444,0.1444,0.1444,0.1378,0.1378,0.1378,0.1378,0.1378,0.1378,0.1378,0.1378,0.1378,0.145,0.145,0.145,0.145,0.145,0.145,0.145,0.145,0.1571,0.1571,0.1571,0.1571,0.1571,0.1571,0.1571,0.208,0.208,0.208,0.208,0.208,0.2425,0.2425,0.2425,0.2425,0.3,0.3,0.3,0.415,0.415,0.77,0.74,0.71,0.7,0.71,0.72,0.74,0.75,0.76,0.76,0.75,0.74,0.74,0.74,0.74,0.74,0.74,0.73,0.72,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.72,0.74,0.74,0.76,0.79,0.8,0.78,0.77,0.75,0.73,0.71,0.72,0.72,0.72,0.71,0.71,0.71,0.71,0.71,0.71,0.7,0.7,0.7,0.72,0.77,0.85,0.475,0.475,0.3533,0.3533,0.3533,0.236,0.236,0.236,0.236,0.236,0.1857,0.1857,0.1857,0.1857,0.1857,0.1857,0.1857,0.1787,0.1787,0.1787,0.1787,0.1787,0.1787,0.1787,0.1787,0.158,0.158,0.158,0.158,0.158,0.158,0.158,0.158,0.158,0.158,0.1425,0.1425,0.1425,0.1425,0.1425,0.1425,0.1425,0.1425,0.1425,0.1425,0.1425,0.1425,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.135,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1473,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1631,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1747,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1828,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1863,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1947,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1958,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.1953,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2061,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2176,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2206,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2357,0.2508,0.2508,0.2508,0.2508,0.2508,0.2508,0.2508,0.2508,0.2508,0.2508,0.2508,0.2508,0.2956,0.2956,0.2956,0.2956,0.2956,0.2956,0.2956,0.2956,0.2956,0.32,0.32,0.32,0.32,0.32,0.32,0.32,0.368,0.368,0.368,0.368,0.368,0.37,0.37,0.37,0.37,0.595,0.595,0.98,0.84,0.75,0.71,0.7,0.71,0.71,0.71,0.71,0.71,0.71,0.71,0.71,0.71,0.7,0.7,0.7,0.71,0.7,0.7,0.7,0.71,0.71,0.71,0.71,0.71,0.71,0.71,0.72,0.74,0.74,0.73,0.73,0.73,0.72,0.72,0.72,0.72,0.72,0.75,0.83,0.96,0.575,0.575,0.3525,0.3525,0.3525,0.3525,0.2867,0.2867,0.2867,0.2867,0.2867,0.2867,0.2587,0.2587,0.2587,0.2587,0.2587,0.2587,0.2587,0.2587,0.2218,0.2218,0.2218,0.2218,0.2218,0.2218,0.2218,0.2218,0.2218,0.2218,0.2218,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.2162,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1994,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1868,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1829,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1713,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1654,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1646,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1621,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1567,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1641,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.1615,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.15,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1325,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.1215,0.117,0.117,0.117,0.117,0.117,0.117,0.117,0.117,0.117,0.117,0.1212,0.1212,0.1212,0.1212,0.1212,0.1212,0.1212,0.1212,0.178,0.178,0.178,0.178,0.178,0.2733,0.2733,0.2733,0.385,0.385,0.78,0.81,0.83,0.83,0.83,0.8,0.75,0.72,0.73,0.72,0.72,0.72,0.72,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.72,0.73,0.74,0.82,0.85,0.42,0.42,0.83,0.84,0.78,0.39,0.39,0.2767,0.2767,0.2767,0.2225,0.2225,0.2225,0.2225,0.16,0.16,0.16,0.16,0.16,0.16,0.1471,0.1471,0.1471,0.1471,0.1471,0.1471,0.1471,0.1363,0.1363,0.1363,0.1363,0.1363,0.1363,0.1363,0.1363,0.115,0.115,0.115,0.115,0.115,0.115,0.115,0.115,0.115,0.115,0.1091,0.1091,0.1091,0.1091,0.1091,0.1091,0.1091,0.1091,0.1091,0.1091,0.1091,0.1033,0.1033,0.1033,0.1033,0.1033,0.1033,0.1033,0.1033,0.1033,0.1033,0.1033,0.1033,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0969,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0992,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.0964,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1007,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1043,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1154,0.1258,0.1258,0.1258,0.1258,0.1258,0.1258,0.1258,0.1258,0.1258,0.1258,0.1258,0.1258,0.1336,0.1336,0.1336,0.1336,0.1336,0.1336,0.1336,0.1336,0.1336,0.1336,0.1336,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.2117,0.2117,0.2117,0.2117,0.2117,0.2117,0.236,0.236,0.236,0.236,0.236,0.3567,0.3567,0.3567,0.48,0.48,0.86,0.78,0.73,0.7,0.7,0.7,0.71,0.71,0.71,0.71,0.71,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.71,0.74,0.395,0.395,0.2833,0.2833,0.2833,0.184,0.184,0.184,0.184,0.184,0.125,0.125,0.125,0.125,0.125,0.125,0.125,0.125,0.107,0.107,0.107,0.107,0.107,0.107,0.107,0.107,0.107,0.107,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0869,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0843,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0813,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.08,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0853,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0794,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.0781,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.086,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.0927,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1315,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1462,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1675,0.1864,0.1864,0.1864,0.1864,0.1864,0.1864,0.1864,0.1864,0.1864,0.1864,0.1864,0.204,0.204,0.204,0.204,0.204,0.204,0.204,0.204,0.204,0.204,0.2211,0.2211,0.2211,0.2211,0.2211,0.2211,0.2211,0.2211,0.2211,0.21,0.21,0.21,0.21,0.21,0.21,0.21,0.21,0.21,0.2225,0.2225,0.2225,0.2225,0.2225,0.2225,0.2225,0.2225,0.2386,0.2386,0.2386,0.2386,0.2386,0.2386,0.2386,0.255,0.255,0.255,0.255,0.255,0.255,0.278,0.278,0.278,0.278,0.278,0.3125,0.3125,0.3125,0.3125,0.3733,0.3733,0.3733,0.505,0.505,0.455,0.455,0.83,0.77,0.73,0.71,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7];
+      const AT = [0];
+      for (const w of PACE) AT.push(AT[AT.length - 1] + w);
+      const TOTAL = AT[AT.length - 1];
+      // The frame at a point of the scroll, 0 to 1, and back.
+      const frameAt = p => {
+        const x = p * TOTAL;
+        let lo = 0, hi = PACE.length - 1;
+        while (lo < hi) { const m = (lo + hi + 1) >> 1; if (AT[m] <= x) lo = m; else hi = m - 1; }
+        return Math.min(lo + (x - AT[lo]) / PACE[lo], FRAMES - 1);
+      };
+      const scrollOf = f => AT[Math.min(Math.max(Math.round(f), 0), FRAMES - 1)] / TOTAL;
       const film = document.getElementById("film");
       const canvas = document.getElementById("film-canvas");
       const ctx = canvas.getContext("2d");
@@ -274,16 +288,17 @@
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const size = Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) >= 1400 ? "l" : "s";
       // Bump when the frames are rendered again, so no browser mixes in ones it kept from before.
-      const CUT = 2;
+      const CUT = 3;
       const name = i => `film/${size}/${String(i).padStart(4, "0")}.webp?cut=${CUT}`;
       // Every frame is fetched, but only those near where you are are decoded and kept ready to draw.
       const blobs = new Array(FRAMES), ready = new Map(), decoding = new Set();
-      const KEEP = size === "l" ? 16 : 32;
+      // Most of them ahead, the way you're scrolling, a few behind for turning back.
+      const KEEP = size === "l" ? 40 : 64, BEHIND = 8;
 
-      // Every 16th first, then the ones between, so the whole film can be scrubbed early on.
-      const order = [];
-      for (const step of [16, 8, 4, 2, 1])
-        for (let i = 0; i < FRAMES; i += step) if (!order.includes(i)) order.push(i);
+      // Every 64th first, then the ones between, so the whole film can be scrubbed early on.
+      const order = [], queued = new Set();
+      for (const step of [64, 32, 16, 8, 4, 2, 1])
+        for (let i = 0; i < FRAMES; i += step) if (!queued.has(i)) { queued.add(i); order.push(i); }
       let next = 0;
       const load = () => {
         if (next >= order.length) return;
@@ -294,21 +309,23 @@
       };
       for (let k = 0; k < 6; k++) load();
 
-      let target = 0, current = 0, drawn = -1, dirty = true;
-      // The fetched frames closest to `current`, the ones to have decoded.
+      let target = 0, current = 0, drawn = -1, dirty = true, dir = 1, last = 0;
+      // The fetched frames to have decoded, the most needed first: on from here the way you're going, then back.
       const wanted = () => {
-        const out = [], c = Math.round(current);
-        for (let d = 0; d < FRAMES && out.length < KEEP; d++) {
-          if (blobs[c - d]) out.push(c - d);
-          if (d && blobs[c + d] && out.length < KEEP) out.push(c + d);
+        const out = [], c = dir > 0 ? Math.floor(current) : Math.ceil(current);
+        for (let d = 0; d < FRAMES && out.length < KEEP - BEHIND; d++) {
+          const i = c + dir * d;
+          if (i < 0 || i >= FRAMES) break;
+          if (blobs[i]) out.push(i);
         }
+        for (let d = 1; d <= BEHIND; d++) if (blobs[c - dir * d]) out.push(c - dir * d);
         return out;
       };
       const decode = () => {
         const want = wanted(), keep = new Set(want);
         for (const [i, bmp] of ready) if (!keep.has(i)) { bmp.close(); ready.delete(i); }
         for (const i of want) {
-          if (decoding.size >= 3) break;
+          if (decoding.size >= 4) break;
           if (ready.has(i) || decoding.has(i)) continue;
           decoding.add(i);
           createImageBitmap(blobs[i]).then(bmp => {
@@ -318,11 +335,24 @@
           }, () => decoding.delete(i));
         }
       };
+      // How far the film may go from `from` towards `to` without skipping a frame that isn't ready yet.
+      // Frames still downloading are passed over; the nearest one stands in for them.
+      const reach = (from, to) => {
+        if (to > from) {
+          let i = Math.floor(from);
+          while (i < Math.ceil(to) && (ready.has(i + 1) || !blobs[i + 1])) i++;
+          return Math.min(to, Math.max(from, i));
+        }
+        let i = Math.ceil(from);
+        while (i > Math.floor(to) && (ready.has(i - 1) || !blobs[i - 1])) i--;
+        return Math.max(to, Math.min(from, i));
+      };
       const nearest = i => {
         for (let d = 0; d < FRAMES; d++) {
-          if (ready.has(i - d)) return ready.get(i - d);
-          if (ready.has(i + d)) return ready.get(i + d);
+          if (ready.has(i - d)) return i - d;
+          if (ready.has(i + d)) return i + d;
         }
+        return -1;
       };
       const resize = () => {
         const r = Math.min(devicePixelRatio || 1, 2);
@@ -330,15 +360,11 @@
         canvas.height = Math.round(canvas.clientHeight * r);
         dirty = true;
       };
-      const draw = () => {
-        const a = Math.floor(current), t = current - a;
-        const A = ready.get(a) || nearest(Math.round(current)), B = t > 0.02 && ready.get(a) && ready.get(a + 1);
-        if (!A) return;
-        const cw = canvas.width, ch = canvas.height, iw = A.width, ih = A.height;
+      // Where on the canvas the frame goes.
+      const place = (iw, ih) => {
+        const cw = canvas.width, ch = canvas.height;
         // Fills a wide window; on a tall one it keeps nearly all its width, as the scenes are framed wide.
         const s = cw >= ch ? Math.max(cw / iw, ch / ih) : Math.max(cw / iw, ch * 0.36 / ih);
-        ctx.fillStyle = "#000";
-        ctx.fillRect(0, 0, cw, ch);
         const x1 = (cw - iw * s) / 2, y1 = (ch - ih * s) / (cw >= ch ? 2 : 2.4);
         // At the start it stands smaller under the words, then grows into the frame as you scroll on.
         // In the frames the laptop's top is 12% down, and it reaches the bottom edge.
@@ -347,28 +373,50 @@
         const z0 = Math.min(1, room / (0.9 * H)), y0 = words - 0.12 * H * z0;
         const k = Math.min(Math.max(current / 20, 0), 1), e = k * k * (3 - 2 * k);
         const z = z0 + (1 - z0) * e, w = iw * s * z, h = ih * s * z;
-        const x = (cw - w) / 2, y = Math.max(y0, y1) + (y1 - Math.max(y0, y1)) * e;
+        return [(cw - w) / 2, Math.max(y0, y1) + (y1 - Math.max(y0, y1)) * e, w, h];
+      };
+      const draw = () => {
+        const a = Math.floor(current), t = current - a;
+        const i = ready.has(a) ? a : nearest(Math.round(current));
+        if (i < 0) return;
+        const A = ready.get(i), B = t > 0.02 && i === a && ready.get(a + 1);
+        const [x, y, w, h] = place(A.width, A.height);
+        // The frames are a few pixels apart, so the next one simply fades in over this one.
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 1;
         ctx.drawImage(A, x, y, w, h);
-        // Between two frames, the next fades in over this one, so a slow scroll still moves smoothly.
         if (B) { ctx.globalAlpha = t; ctx.drawImage(B, x, y, w, h); ctx.globalAlpha = 1; }
-        drawn = ready.has(a) && (!(t > 0.02) || B) ? current : -1;
+        drawn = i === a && (!(t > 0.02) || B) ? current : -1;
       };
       const progress = () => {
         const r = film.getBoundingClientRect();
         return Math.min(Math.max(-r.top / (r.height - innerHeight), 0), 1);
       };
-      const fade = (f, from, to) => {
-        const e = 5;
-        return Math.min(Math.max(Math.min((f - from + e) / e, (to - f + e) / e), 0), 1);
+      // How far into the scroll a frame is, in the same units as PACE.
+      const along = f => {
+        const a = Math.min(Math.max(Math.floor(f), 0), FRAMES - 2);
+        return AT[a] + Math.min(Math.max(f - a, 0), 1) * PACE[a];
       };
-      const tick = () => {
+      // In and out within its own frames, so two never show at once. The first and last stay in at the ends.
+      const fade = (f, from, to) => {
+        const e = 2.8, x = along(f), i = from > 0 ? (x - along(from)) / e : 1, o = to < FRAMES - 1 ? (along(to) - x) / e : 1;
+        return Math.min(Math.max(Math.min(i, o), 0), 1);
+      };
+      const tick = now => {
         const p = progress();
-        target = p * (FRAMES - 1);
-        const before = current;
-        current = still ? target : current + (target - current) * 0.18;
-        if (Math.abs(target - current) < 0.01) current = target;
-        if (Math.round(before) !== Math.round(current) || dirty) decode();
+        // The frames are close enough that it may rest between two, the next one half faded in.
+        target = frameAt(p);
+        const before = current, dt = Math.min(now - (last || now), 50);
+        last = now;
+        if (target !== current) dir = target > current ? 1 : -1;
+        // Eases towards the scroll at the same pace on any screen's refresh rate.
+        let next = still ? target : current + (target - current) * (1 - Math.exp(-dt / 70));
+        if (Math.abs(target - next) < 0.01) next = target;
+        // Never past a frame that isn't decoded yet: it plays on as they come, rather than jumping.
+        // Only a long leap (a link, the end key) jumps.
+        current = Math.abs(target - current) > 400 || !ready.has(Math.round(current)) ? next : reach(current, next);
+        if (Math.floor(before) !== Math.floor(current) || dirty) decode();
         if (dirty || drawn !== current) { dirty = false; draw(); }
         for (const c of caps) {
           const o = fade(current, +c.dataset.from, +c.dataset.to);
@@ -379,7 +427,7 @@
         bar.style.transform = `scaleX(${p})`;
         nav.classList.toggle("on-film", film.getBoundingClientRect().bottom > 56);
         // Rests once it has caught up with the scroll, so an idle page costs nothing.
-        if (current !== target || dirty) requestAnimationFrame(tick); else running = false;
+        if (current !== target || dirty) requestAnimationFrame(tick); else { running = false; last = 0; }
       };
       let running = false;
       const wake = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
@@ -390,7 +438,7 @@
       resize();
       // #frame=120 starts at that frame, handy for linking to a scene.
       const at = /frame=(\d+)/.exec(location.hash);
-      if (at) scrollTo({ top: film.offsetTop + Math.min(+at[1] / (FRAMES - 1), 1) * (film.offsetHeight - innerHeight), behavior: "instant" });
+      if (at) scrollTo({ top: film.offsetTop + scrollOf(+at[1]) * (film.offsetHeight - innerHeight), behavior: "instant" });
       wake();
     })();
 
