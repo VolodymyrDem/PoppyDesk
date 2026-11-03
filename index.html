@@ -309,43 +309,79 @@
       };
       for (let k = 0; k < 6; k++) load();
 
-      let target = 0, current = 0, drawn = -1, dirty = true, dir = 1, last = 0;
+      let target = 0, current = 0, drawn = -1, dirty = true, dir = 1, last = 0, speed = 0;
+      // Neighbouring frames are only a few pixels apart, so when scrolling fast it may go past up to this
+      // many that aren't decoded yet, rather than wait for each.
+      const SKIP = 6;
+      // How many frames apart the ones it decodes are: every one when slow, fewer when fast, as only
+      // one per screen refresh can show anyway.
+      const stride = () => Math.min(Math.max(Math.round(speed * 12), 1), SKIP);
       // The fetched frames to have decoded, the most needed first: on from here the way you're going, then back.
       const wanted = () => {
-        const out = [], c = dir > 0 ? Math.floor(current) : Math.ceil(current);
-        for (let d = 0; d < FRAMES && out.length < KEEP - BEHIND; d++) {
-          const i = c + dir * d;
+        const out = [], c = dir > 0 ? Math.floor(current) : Math.ceil(current), k = stride();
+        if (blobs[c]) out.push(c);
+        // On a grid of k, so the same frames stay wanted as it moves.
+        let i = dir > 0 ? Math.floor(c / k) * k : Math.ceil(c / k) * k;
+        while (out.length < KEEP - BEHIND) {
+          i += dir * k;
           if (i < 0 || i >= FRAMES) break;
           if (blobs[i]) out.push(i);
         }
         for (let d = 1; d <= BEHIND; d++) if (blobs[c - dir * d]) out.push(c - dir * d);
         return out;
       };
+      // Decoding happens off the page's own thread where it can (Safari's would hold up the scroll),
+      // in a few workers at once.
+      const workers = [];
+      try {
+        const src = "onmessage = e => createImageBitmap(e.data.blob).then(bmp => postMessage({ i: e.data.i, bmp }, [bmp]), () => postMessage({ i: e.data.i, failed: true }));";
+        const url = URL.createObjectURL(new Blob([src], { type: "text/javascript" }));
+        for (let k = 0; k < Math.min(4, Math.max(2, (navigator.hardwareConcurrency || 4) - 2)); k++) {
+          const w = new Worker(url);
+          w.onmessage = e => {
+            // A browser that can't decode in a worker does it here instead.
+            if (e.data.failed) { workers.length = 0; decoding.delete(e.data.i); decode(); return; }
+            decoded(e.data.i, e.data.bmp);
+          };
+          workers.push(w);
+        }
+      } catch { workers.length = 0; }
+      let turn = 0;
+      const decoded = (i, bmp) => {
+        decoding.delete(i);
+        if (wanted().includes(i)) { ready.set(i, bmp); dirty = true; } else bmp.close();
+        decode(); wake();
+      };
       const decode = () => {
         const want = wanted(), keep = new Set(want);
         for (const [i, bmp] of ready) if (!keep.has(i)) { bmp.close(); ready.delete(i); }
         for (const i of want) {
-          if (decoding.size >= 4) break;
+          if (decoding.size >= (workers.length ? workers.length * 2 : 4)) break;
           if (ready.has(i) || decoding.has(i)) continue;
           decoding.add(i);
-          createImageBitmap(blobs[i]).then(bmp => {
-            decoding.delete(i);
-            if (wanted().includes(i)) { ready.set(i, bmp); dirty = true; } else bmp.close();
-            decode(); wake();
-          }, () => decoding.delete(i));
+          if (workers.length) workers[turn++ % workers.length].postMessage({ i, blob: blobs[i] });
+          else createImageBitmap(blobs[i]).then(bmp => decoded(i, bmp), () => decoding.delete(i));
         }
       };
-      // How far the film may go from `from` towards `to` without skipping a frame that isn't ready yet.
-      // Frames still downloading are passed over; the nearest one stands in for them.
+      // A frame it can stand on: decoded, or not fetched yet (then the nearest one stands in for it).
+      const passable = i => ready.has(i) || !blobs[i];
+      // How far the film may go from `from` towards `to`, stepping over at most SKIP frames that aren't decoded yet.
       const reach = (from, to) => {
-        if (to > from) {
-          let i = Math.floor(from);
-          while (i < Math.ceil(to) && (ready.has(i + 1) || !blobs[i + 1])) i++;
-          return Math.min(to, Math.max(from, i));
+        const s = Math.sign(to - from);
+        if (!s) return to;
+        const end = s > 0 ? Math.ceil(to) : Math.floor(to);
+        let i = s > 0 ? Math.floor(from) : Math.ceil(from);
+        while (i !== end) {
+          let j = i + s;
+          while (!passable(j) && j !== end && Math.abs(j - i) < SKIP) j += s;
+          if (!passable(j)) break;
+          i = j;
         }
-        let i = Math.ceil(from);
-        while (i > Math.floor(to) && (ready.has(i - 1) || !blobs[i - 1])) i--;
-        return Math.max(to, Math.min(from, i));
+        return s > 0 ? Math.min(to, Math.max(from, i)) : Math.max(to, Math.min(from, i));
+      };
+      const settled = () => {
+        for (let d = 0; d <= SKIP; d++) if (ready.has(Math.floor(current) - d) || ready.has(Math.ceil(current) + d)) return true;
+        return false;
       };
       const nearest = i => {
         for (let d = 0; d < FRAMES; d++) {
@@ -376,18 +412,24 @@
         return [(cw - w) / 2, Math.max(y0, y1) + (y1 - Math.max(y0, y1)) * e, w, h];
       };
       const draw = () => {
-        const a = Math.floor(current), t = current - a;
-        const i = ready.has(a) ? a : nearest(Math.round(current));
-        if (i < 0) return;
-        const A = ready.get(i), B = t > 0.02 && i === a && ready.get(a + 1);
+        // The decoded frames either side of where it is, and how far between them.
+        const f = Math.floor(current);
+        let a = f;
+        while (!ready.has(a) && f - a < SKIP && a > 0) a--;
+        if (!ready.has(a)) a = nearest(Math.round(current));
+        if (a < 0) return;
+        let b = a + 1;
+        while (!ready.has(b) && b - a < SKIP && b < FRAMES - 1) b++;
+        const B = a <= current && b > current && ready.get(b), t = B ? (current - a) / (b - a) : 0;
+        const A = ready.get(a);
         const [x, y, w, h] = place(A.width, A.height);
         // The frames are a few pixels apart, so the next one simply fades in over this one.
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 1;
         ctx.drawImage(A, x, y, w, h);
-        if (B) { ctx.globalAlpha = t; ctx.drawImage(B, x, y, w, h); ctx.globalAlpha = 1; }
-        drawn = i === a && (!(t > 0.02) || B) ? current : -1;
+        if (B && t > 0.02) { ctx.globalAlpha = t; ctx.drawImage(B, x, y, w, h); ctx.globalAlpha = 1; }
+        drawn = a === current || (B && a === f && b === f + 1) ? current : -1;
       };
       const progress = () => {
         const r = film.getBoundingClientRect();
@@ -403,6 +445,7 @@
         const e = 2.8, x = along(f), i = from > 0 ? (x - along(from)) / e : 1, o = to < FRAMES - 1 ? (along(to) - x) / e : 1;
         return Math.min(Math.max(Math.min(i, o), 0), 1);
       };
+      let prevTarget = 0;
       const tick = now => {
         const p = progress();
         // The frames are close enough that it may rest between two, the next one half faded in.
@@ -410,12 +453,15 @@
         const before = current, dt = Math.min(now - (last || now), 50);
         last = now;
         if (target !== current) dir = target > current ? 1 : -1;
+        // Frames a millisecond the scroll is going through, smoothed.
+        speed += (Math.abs(target - prevTarget) / Math.max(dt, 1) - speed) * 0.3;
+        prevTarget = target;
         // Eases towards the scroll at the same pace on any screen's refresh rate.
         let next = still ? target : current + (target - current) * (1 - Math.exp(-dt / 70));
         if (Math.abs(target - next) < 0.01) next = target;
-        // Never past a frame that isn't decoded yet: it plays on as they come, rather than jumping.
-        // Only a long leap (a link, the end key) jumps.
-        current = Math.abs(target - current) > 400 || !ready.has(Math.round(current)) ? next : reach(current, next);
+        // Never far past frames that aren't decoded yet: it plays on as they come, rather than jumping.
+        // Only a long leap (a link, the end key), or having none decoded near, jumps.
+        current = Math.abs(target - current) > 400 || !settled() ? next : reach(current, next);
         if (Math.floor(before) !== Math.floor(current) || dirty) decode();
         if (dirty || drawn !== current) { dirty = false; draw(); }
         for (const c of caps) {
@@ -427,7 +473,12 @@
         bar.style.transform = `scaleX(${p})`;
         nav.classList.toggle("on-film", film.getBoundingClientRect().bottom > 56);
         // Rests once it has caught up with the scroll, so an idle page costs nothing.
-        if (current !== target || dirty) requestAnimationFrame(tick); else { running = false; last = 0; }
+        if (current !== target || dirty) requestAnimationFrame(tick);
+        else {
+          running = false; last = 0;
+          // At rest, every frame around it is wanted again, so it stands sharp.
+          if (speed) { speed = 0; decode(); }
+        }
       };
       let running = false;
       const wake = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
