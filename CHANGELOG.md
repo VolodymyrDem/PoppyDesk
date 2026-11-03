@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0
+
+- **Trackpad NumPad**: lay out your own keys. Choose **My Own** in its settings and **Edit Keys…**: drag keys onto the 4×5 grid and make Space, Shift, Enter or any other key as wide or tall as you like. Add letters, keystrokes like ⌘C, apps, files, links and shortcuts from the Shortcuts app. Apps, files and shortcuts show their own icon.
+- **Trackpad NumPad**: keys are rounded like Apple's app icons. Make more than one page and swipe sideways with one finger to turn them.
+- **Trackpad NumPad**: modifiers hold on for the next key you tap, and Caps Lock stays on until you tap it again.
+- **Trackpad NumPad**: choose which corner of the trackpad opens it with a double tap.
+- **Trackpad NumPad**: the arrow keys are easier to hit, and the keys keep their size when the notch is wider.
+
 ## 0.4.0
 
 - **Trackpad NumPad** (beta): press ⌥⌘N, or double-tap the trackpad's top-left corner, and the trackpad's right half becomes a numeric keypad that comes out of the notch. Tap or click a key to type it; Esc puts it away.
