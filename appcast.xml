@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.5.0</title>
+      <pubDate>Tue, 03 Nov 2026 12:06:28 GMT</pubDate>
+      <sparkle:version>60</sparkle:version>
+      <sparkle:shortVersionString>0.5.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Trackpad NumPad</b>: lay out your own keys. Choose <b>My Own</b> in its settings and <b>Edit Keys…</b>: drag keys onto the 4×5 grid and make Space, Shift, Enter or any other key as wide or tall as you like. Add letters, keystrokes like ⌘C, apps, files, links and shortcuts from the Shortcuts app. Apps, files and shortcuts show their own icon.</li><li><b>Trackpad NumPad</b>: keys are rounded like Apple&#x27;s app icons. Make more than one page and swipe sideways with one finger to turn them.</li><li><b>Trackpad NumPad</b>: modifiers hold on for the next key you tap, and Caps Lock stays on until you tap it again.</li><li><b>Trackpad NumPad</b>: choose which corner of the trackpad opens it with a double tap.</li><li><b>Trackpad NumPad</b>: the arrow keys are easier to hit, and the keys keep their size when the notch is wider.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.5.0/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="VEKxvdld5RmQKYw3kmvsc6k6LI3wMkdxq4hCM6c/1tjf0M1fCkigdF7fXrwcN/83bXoAzXspmRc9kx4gyqBlAQ==" length="12356706"/>
+    </item>
+    <item>
       <title>Version 0.4.0</title>
       <pubDate>Mon, 02 Nov 2026 11:29:54 GMT</pubDate>
       <sparkle:version>58</sparkle:version>
