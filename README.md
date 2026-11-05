@@ -43,6 +43,14 @@ After that PoppyDesk updates itself.
 
 [Report a problem](https://github.com/VolodymyrDem/PoppyDesk/issues/new?template=bug_report.yml) or [suggest an idea](https://github.com/VolodymyrDem/PoppyDesk/issues/new?template=feature_request.yml) here, or from **Settings → About** in the app.
 
+## Website
+
+This repository also hosts the site. Its glass controls come from [glisse](https://github.com/0kzh/glisse), bundled with Preact into `assets/glisse.js`. To rebuild them after changing `web/islands.jsx`:
+
+```sh
+cd web && npm install && npm run build
+```
+
 ## License
 
 PoppyDesk is free to use, but not open source: see [LICENSE.md](LICENSE.md). [Privacy](https://volodymyrdem.github.io/PoppyDesk/privacy.html): nothing is collected.

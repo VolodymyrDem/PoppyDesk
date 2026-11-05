@@ -1,0 +1,17 @@
+{
+  "name": "poppydesk-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "glisse": "^0.5.0",
+    "preact": "^10.27.0"
+  },
+  "devDependencies": {
+    "@phosphor-icons/core": "^2.1.1",
+    "esbuild": "^0.25.0",
+    "geist": "^1.5.1"
+  }
+}

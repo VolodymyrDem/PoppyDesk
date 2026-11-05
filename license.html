@@ -1,48 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>License — PoppyDesk</title>
+  <title>License · PoppyDesk</title>
+  <meta name="description" content="The PoppyDesk license.">
+  <meta name="theme-color" content="#000000">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Geist-Variable.woff2" crossorigin>
   <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="assets/glisse.js"></script>
 </head>
 <body>
-  <nav>
-    <div class="wrap">
-      <a class="brand" href="./"><img src="assets/icon.png" alt="">PoppyDesk</a>
-      <a class="button" href="./#download" style="margin-left:auto">Download</a>
-    </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+  </svg>
+  <a class="skip body-5" href="#main">Skip to content</a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <div class="nav-glass" data-glisse="pane"></div>
+    <a class="brand title-3" href="./" aria-label="PoppyDesk home"><img src="assets/icon.png" alt="">PoppyDesk</a>
+    <a class="lg-glass lg-button" data-variant="filled" href="https://github.com/VolodymyrDem/PoppyDesk/releases/latest/download/PoppyDesk.dmg">Download</a>
   </nav>
-  <main class="doc">
-    <h1>License</h1>
-    <p class="updated">Copyright © 2026 Volodymyr Demianchuk. All rights reserved.</p>
+  <main class="doc" id="main">
+    <a class="back body-5" href="./"><svg class="ph" aria-hidden="true"><use href="#i-arrow"/></svg>PoppyDesk</a>
+    <h1 class="heading-2">License</h1>
+    <p class="updated caption-2">Copyright © 2026 Volodymyr Demianchuk. All rights reserved.</p>
     <p>PoppyDesk is free. This license is between you and Volodymyr Demianchuk ("the author"). By installing or using PoppyDesk you agree to it.</p>
 
-    <h2>You may</h2>
+    <h2 class="heading-5">You may</h2>
     <ul>
       <li>Download PoppyDesk from its official website (volodymyrdem.github.io/PoppyDesk) or its GitHub releases, and install and use it on any number of Macs, at home or at work.</li>
       <li>Share links to the official website and releases.</li>
     </ul>
 
-    <h2>You may not</h2>
+    <h2 class="heading-5">You may not</h2>
     <ul>
       <li>Sell, rent, lend or otherwise redistribute PoppyDesk, whole or in part, or bundle it with anything else, without the author's written permission.</li>
       <li>Modify, decompile, disassemble or reverse engineer PoppyDesk, except where the law allows it regardless of this license.</li>
       <li>Remove or change its copyright notices, name or icon.</li>
     </ul>
 
-    <h2>Open-source parts</h2>
+    <h2 class="heading-5">Open-source parts</h2>
     <p>PoppyDesk includes open-source software, each under its own license: <a href="https://sparkle-project.org">Sparkle</a> (MIT) and <a href="https://github.com/ungive/mediaremote-adapter">MediaRemote Adapter</a> (BSD 3-Clause). Their full licenses are in <b>Settings → About → Acknowledgements</b>, and those licenses, not this one, apply to those parts.</p>
 
-    <h2>No warranty</h2>
+    <h2 class="heading-5">No warranty</h2>
     <p>PoppyDesk is provided "as is", without warranty of any kind, express or implied, including the warranties of merchantability, fitness for a particular purpose and non-infringement. To the extent the law allows, the author isn't liable for any claim, damages or other liability arising from PoppyDesk or its use, including lost data or lost work.</p>
 
-    <h2>Ending</h2>
+    <h2 class="heading-5">Ending</h2>
     <p>This license ends automatically if you break it; you then have to stop using PoppyDesk and delete it. Future versions of PoppyDesk may come with a different license.</p>
   </main>
   <footer>
-    <div class="wrap">
+    <div class="wrap caption-2">
       <span>© 2026 Volodymyr Demianchuk</span>
       <div class="links"><a href="./">Home</a><a href="privacy.html">Privacy</a><a href="https://github.com/VolodymyrDem/PoppyDesk/releases">Releases</a></div>
     </div>
