@@ -138,6 +138,9 @@ a.lg-button[data-variant="filled"] { --lg-button-fill: var(--coral); }
   border-radius: var(--r-full); background: var(--coral);
 }
 .nav .menu-slot { display: none; }
+/* Just its lines in the pill, without a glass circle of its own crowding the pill's edge. */
+.nav .menu-slot .menu-toggle { background-color: transparent; background-image: none; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; }
+.nav .menu-slot .menu-toggle:hover, .nav .menu-slot .menu-toggle[data-open] { background-color: rgb(255 255 255 / 0.08); }
 .menu-toggle .menu-lines { position: relative; width: 18px; height: 12px; display: block; }
 .menu-toggle .menu-lines i { position: absolute; left: 0; right: 0; height: 2px; border-radius: var(--r-full); background: currentColor; transition: transform 500ms var(--ease); }
 .menu-toggle .menu-lines i:first-child { top: 1px; }
@@ -192,6 +195,7 @@ a.lg-button[data-variant="filled"] { --lg-button-fill: var(--coral); }
 @media (max-aspect-ratio: 1/1) {
   .film .scrim { height: 55%; }
   .film .cap { bottom: var(--s-600); }
+  .film .cap:not(.top) { bottom: auto; top: calc(var(--shot-end, 50%) + var(--s-500)); }
   .film .cap.top { top: var(--s-800); }
 }
 
@@ -366,9 +370,14 @@ section.alt { background: var(--bg-2); --card: var(--bg-3); }
 .strip .pane img { height: auto; max-width: none; }
 .strip .pane img.wide { width: 92%; }
 .strip .pane img.narrow { width: 64%; }
+.numpad-shot { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; grid-template-columns: subgrid; }
+.numpad-shot .pane { place-items: start center; height: 340px; }
+.numpad-shot .pane img { width: 244px; height: auto; }
+.numpad-shot figcaption { align-self: center; }
 @media (max-width: 820px) {
   .shots { grid-template-columns: 1fr; }
   .wheel-shot { grid-row: auto; }
+  .numpad-shot { grid-template-columns: 1fr; }
 }
 
 /* Split sections */

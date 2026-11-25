@@ -189,7 +189,7 @@
         <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-notch.png)"></i></div><h3 class="heading-6">Notch</h3><p class="body-6">Hover the notch and it opens into a dashboard: what's playing, your week, a timer and a stopwatch, a shelf for files and AirDrop.</p></article>
         <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-wheel.png)"></i></div><h3 class="heading-6">Clipboard Wheel</h3><p class="body-6">Drag files or anything else, tap Control, and drop on Copy, Cut, Copy Path, AirDrop and more.</p></article>
         <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-quickwheel.png)"></i></div><h3 class="heading-6">Quick Wheel <span class="beta caption-3" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p class="body-6">Hold ⌃⌥⌘ or double tap the trackpad with two fingers for a wheel of brightness, volume, media, Mission Control and your own shortcuts, apps and links. Swipe to turn the page.</p></article>
-        <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-numpad.png)"></i></div><h3 class="heading-6">NumPad <span class="beta caption-3" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p class="body-6">Press ⌥⌘N and the trackpad's right half becomes a numeric keypad, shown coming out of the notch. Tap or click a key to type it, or lay out keys of your own.</p></article>
+        <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-numpad.png)"></i></div><h3 class="heading-6">NumPad <span class="beta caption-3" title="Still being polished, so it's off until you turn it on">Beta</span></h3><p class="body-6">Press ⌥⌘N or double tap a trackpad corner and its right half becomes a keypad, shown coming out of the notch. Use the numbers, or lay out keys, apps and shortcuts of your own.</p></article>
         <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-history.png)"></i></div><h3 class="heading-6">Clipboard History</h3><p class="body-6">Everything you copy, a shortcut away, with search and pins, pasted right where you were.</p></article>
         <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-battery.png)"></i></div><h3 class="heading-6">Battery</h3><p class="body-6">How full it is and where the power goes, with a bubble by the notch showing the watts coming in.</p></article>
         <article class="module card reveal"><div class="glyph"><i class="icon" style="--icon:url(assets/icon-awake.png)"></i></div><h3 class="heading-6">Keep Awake</h3><p class="body-6">Keeps the Mac from sleeping for as long as you like, with a little cup counting down by the notch or in the menu bar.</p></article>
@@ -220,6 +220,10 @@
         <figure class="shot strip card reveal">
           <div class="pane"><img class="narrow" src="assets/notch-charging-crop.png" alt="A bubble beside the notch showing 94 W coming in" loading="lazy"></div>
           <figcaption><h3 class="heading-6">Battery</h3><p class="body-6">Plug in and the notch tells you how many watts are really coming in.</p></figcaption>
+        </figure>
+        <figure class="shot numpad-shot card reveal">
+          <div class="pane"><img src="assets/numpad-notch.png" width="244" height="308" alt="The NumPad out of the notch: Messages, Music, Notes and Calendar, media keys, a screenshot key and digits, with 5 under a finger" loading="lazy"></div>
+          <figcaption><h3 class="heading-6">NumPad</h3><p class="body-6">Press ⌥⌘N or double tap a corner of the trackpad, and keys come out of the notch for its right half to type. Lay out your own: digits, apps, media and shortcuts, on pages you swipe between.</p></figcaption>
         </figure>
       </div>
     </div>
@@ -464,10 +468,15 @@
         const cw = canvas.width, ch = canvas.height;
         // Fills a wide window; on a tall one it keeps nearly all its width, as the scenes are framed wide.
         const s = cw >= ch ? Math.max(cw / iw, ch / ih) : Math.max(cw / iw, ch * 0.36 / ih);
-        const x1 = (cw - iw * s) / 2, y1 = (ch - ih * s) / (cw >= ch ? 2 : 2.4);
         // At the start it stands smaller under the words, then grows into the frame as you scroll on.
         // In the frames the laptop's top is 12% down, and it reaches the bottom edge.
         const r = canvas.height / canvas.clientHeight, cr = canvas.getBoundingClientRect();
+        // On a tall one it sits just under the menu, leaving the room below for the words.
+        const under = (nav.getBoundingClientRect().bottom - cr.top + 12) * r;
+        const x1 = (cw - iw * s) / 2, y1 = cw >= ch ? (ch - ih * s) / 2 : Math.min(under, (ch - ih * s) / 2.4);
+        // and the words go just under it.
+        const end = `${Math.round((y1 + ih * s) / r)}px`;
+        if (cw < ch && film.style.getPropertyValue("--shot-end") !== end) film.style.setProperty("--shot-end", end);
         const words = (hero.getBoundingClientRect().bottom - cr.top + 12) * r, room = ch - words, H = ih * s;
         const z0 = Math.min(1, room / (0.9 * H)), y0 = words - 0.12 * H * z0;
         const k = Math.min(Math.max(current / 20, 0), 1), e = k * k * (3 - 2 * k);

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0
+
+- **Welcome tour**: the first launch shows each module working, live, and lets you turn on the ones you want.
+- **Settings**: a sidebar with a page for each module, search, and **Basic** or **Advanced** in the toolbar. **Reset to Defaults** puts any module back as it came.
+- **Trackpad NumPad**: the key editor is new. Find keys, actions, apps and shortcuts in a library with search and filters, and drag them onto the grid: other keys make way as you drag and swap places when you drop on them. Drag a key off the grid, or press Delete, to take it off. Pages have a menu of their own, and the window can be resized.
+- **Clipboard Wheel**: swipe sideways with two fingers to turn the page, like the Quick Wheel. Let go in the middle and the wheel stays open with a preview of what you dragged, so you can still pick an action.
+- **Wheels**: the middle grows under the pointer, and the actions around it make room.
+- **Notch**: a new default shape, closer to the real notch.
+- **Menu Bar** is shelved for now and no longer offered in the app.
+
 ## 0.5.0
 
 - **Trackpad NumPad**: lay out your own keys. Choose **My Own** in its settings and **Edit Keys…**: drag keys onto the 4×5 grid and make Space, Shift, Enter or any other key as wide or tall as you like. Add letters, keystrokes like ⌘C, apps, files, links and shortcuts from the Shortcuts app. Apps, files and shortcuts show their own icon.
