@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.6.0</title>
+      <pubDate>Wed, 25 Nov 2026 01:05:00 GMT</pubDate>
+      <sparkle:version>63</sparkle:version>
+      <sparkle:shortVersionString>0.6.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Welcome tour</b>: the first launch shows each module working, live, and lets you turn on the ones you want.</li><li><b>Settings</b>: a sidebar with a page for each module, search, and <b>Basic</b> or <b>Advanced</b> in the toolbar. <b>Reset to Defaults</b> puts any module back as it came.</li><li><b>Trackpad NumPad</b>: the key editor is new. Find keys, actions, apps and shortcuts in a library with search and filters, and drag them onto the grid: other keys make way as you drag and swap places when you drop on them. Drag a key off the grid, or press Delete, to take it off. Pages have a menu of their own, and the window can be resized.</li><li><b>Clipboard Wheel</b>: swipe sideways with two fingers to turn the page, like the Quick Wheel. Let go in the middle and the wheel stays open with a preview of what you dragged, so you can still pick an action.</li><li><b>Wheels</b>: the middle grows under the pointer, and the actions around it make room.</li><li><b>Notch</b>: a new default shape, closer to the real notch.</li><li><b>Menu Bar</b> is shelved for now and no longer offered in the app.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.6.0/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="+s77CF9c6+PYD8/NpAsm+q87iUw62pfghjsB7ywpesWRb0SaC2RKnnLxEs87C8VWc+8VIji662evQM4Fdnk7Dg==" length="13925074"/>
+    </item>
+    <item>
       <title>Version 0.5.0</title>
       <pubDate>Tue, 03 Nov 2026 12:06:28 GMT</pubDate>
       <sparkle:version>60</sparkle:version>
