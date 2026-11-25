@@ -260,9 +260,7 @@ section.alt { background: var(--bg-2); --card: var(--bg-3); }
   display: flex; gap: 1.05cqw; overflow: hidden; max-width: 6cqw;
   transition: max-width 0.45s cubic-bezier(0.3, 1.1, 0.5, 1), opacity 0.3s var(--ease);
 }
-.menubar .hidden-icons.gone { max-width: 0; opacity: 0; margin-right: -1.05cqw; }
-.menubar .poppy { background: none; border: 0; padding: 0.2cqw 0.3cqw; margin: 0 -0.3cqw; border-radius: 0.3cqw; cursor: pointer; display: flex; transition: background-color 300ms var(--ease); }
-.menubar .poppy:hover { background: rgba(255, 255, 255, 0.2); }
+.menubar .poppy { display: flex; }
 .menubar .poppy img { height: 0.93cqw; }
 .menubar .clock { white-space: nowrap; }
 
