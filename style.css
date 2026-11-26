@@ -103,7 +103,7 @@ a:hover { text-decoration-color: currentColor; }
 
 /* glisse buttons, also used on links. Main buttons are 8px by 12px around the text. */
 .lg-button { padding: var(--s-75) var(--s-100); height: auto; min-height: 40px; font-size: 14px; line-height: 20px; font-weight: 600; text-decoration: none; }
-.lg-button[data-icon] { padding-left: var(--s-100); }
+.lg-button[data-icon]:not([data-icon="only"]) { padding-left: var(--s-100); }
 .lg-button:hover { text-decoration: none; }
 .lg-button:is(:active, [data-pressed]) { transform: scale(0.98); }
 .lg-button.cta { font-size: 16px; line-height: 24px; }
