@@ -6,6 +6,15 @@
     <description>PoppyDesk updates</description>
     <language>en</language>
     <item>
+      <title>Version 0.6.1</title>
+      <pubDate>Fri, 27 Nov 2026 09:39:51 GMT</pubDate>
+      <sparkle:version>64</sparkle:version>
+      <sparkle:shortVersionString>0.6.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li><b>Notch</b>: files on the shelf from Desktop, Documents or Downloads keep their preview after a restart, instead of showing the icon of their kind. Previews are kept from the next time you add a file.</li></ul>]]></description>
+      <enclosure url="https://github.com/VolodymyrDem/PoppyDesk/releases/download/v0.6.1/PoppyDesk.dmg" type="application/octet-stream" sparkle:edSignature="TNOSKAdut6uwzCvFDjHmfjWf0pyiNeaTpZ7KOeV+rbgPPzGQV5jXMM7Ra3S0Umfgrk5SyNto/LYyA8q/kxhrCg==" length="13940156"/>
+    </item>
+    <item>
       <title>Version 0.6.0</title>
       <pubDate>Wed, 25 Nov 2026 01:05:00 GMT</pubDate>
       <sparkle:version>63</sparkle:version>
