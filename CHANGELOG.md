@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.1
+
+- **Notch**: files on the shelf from Desktop, Documents or Downloads keep their preview after a restart, instead of showing the icon of their kind. Previews are kept from the next time you add a file.
+
 ## 0.6.0
 
 - **Welcome tour**: the first launch shows each module working, live, and lets you turn on the ones you want.
